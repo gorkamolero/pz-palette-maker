@@ -8,8 +8,6 @@
     "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login"
   },
   "dependencies": {
-    "@bit/pickzen.pui.core.pz-boiler": "^1.0.0",
-    "@bit/pickzen.pui.core.typer": "^0.0.1",
     "chroma-js": "^2.0.4",
     "core-js": "^2.6.5",
     "material-icons": "^0.3.1",
@@ -18,7 +16,6 @@
     "vue": "^2.6.10",
     "vue-color": "^2.7.0",
     "vue-cute-modal": "^1.1.0",
-    "vue-flip": "^0.3.0",
     "vue-modal-dialogs": "^3.0.0",
     "vue-observe-visibility": "^0.4.4",
     "vue-router": "^3.0.3",
