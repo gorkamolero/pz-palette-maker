@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Image from './views/Image.vue'
+import ChooseColor from './views/ChooseColor.vue'
+import ReadableColors from './views/ReadableColors.vue'
+import Palette from './views/Palette.vue'
 
 Vue.use(Router)
 
@@ -11,15 +15,45 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        hideArrow: true
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/multi-color',
+      name: 'One Multi',
+      component: Home,
+      meta: {
+        split: true
+      }
+    },
+    {
+      path: '/image',
+      name: 'Image',
+      component: Image
+    },
+    {
+      path: '/choose-one-color',
+      name: 'One Color',
+      component: ChooseColor,
+      meta: { multi: false }
+    },
+    {
+      path: '/choose-multiple-colors',
+      name: 'Multiple Colors',
+      component: ChooseColor,
+      meta: { multi: true }
+    },
+    {
+      path: '/readable-colors',
+      name: 'Readable colors',
+      component: ReadableColors,
+    },
+    {
+      path: '/you-made-your-choice',
+      name: 'Color palette',
+      component: Palette,
+    },
   ]
 })
