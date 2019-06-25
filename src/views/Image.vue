@@ -1,13 +1,15 @@
 <template>
   <article class="step image">
-    <div class="card-inner color-swatch-wrap">
-      <h1>Please de-select to reach a maximum of four</h1>
-      <template v-for="(color, index) in swatches">
-        <div class="color-swatch" :class="{active: isActive(color.hex)}" @click="toggleInactive(color.hex)" :key="index">
-          <div class="color" :style="{backgroundColor: color.hex}"></div>
-          <span>{{ color.hex }}</span>
-        </div>
-      </template>
+    <div class="card">
+      <div class="card-inner color-swatch-wrap">
+        <h1>Please de-select to reach a maximum of four</h1>
+        <template v-for="(color, index) in swatches">
+          <div class="color-swatch" :class="{active: isActive(color.hex)}" @click="toggleInactive(color.hex)" :key="index">
+            <div class="color" :style="{backgroundColor: color.hex}"></div>
+            <span>{{ color.hex }}</span>
+          </div>
+        </template>
+      </div>
     </div>
     
     <div class="card">
@@ -16,7 +18,7 @@
 
     <div class="next below" v-if="this.minReached">
       <small>I love these colors. Let's go!</small>
-      <vs-button @click="setNGo" radius color="danger" type="gradient" icon="arrow_forward" />
+      <vs-button @click="setNGo" radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
     </div>
   </article>
 </template>

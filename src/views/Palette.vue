@@ -6,7 +6,7 @@
         <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
 
         <br><br>
-
+        
         <SlickList class="flex" axis="x" lockAxis="x" v-model="colors">
           <SlickItem v-for="(color, index) in colors" :index="index" :key="index">
             <div class="color-swatch">
@@ -17,8 +17,8 @@
         </SlickList>
 
         <ul class="options" v-if="multi">
-          <li><vs-checkbox v-model="bezier">Bezier Interpolation</vs-checkbox></li>
-          <li><vs-checkbox v-model="lightness">Correct Lightness</vs-checkbox></li>
+          <li><vs-checkbox v-model="bezier">Smooth transition</vs-checkbox></li>
+          <li><vs-checkbox v-model="lightness">Correct Light</vs-checkbox></li>
         </ul>
 
         <footer style="margin-top: auto;">
@@ -44,7 +44,7 @@
     
     <div to="/you-made-your-choice" class="next">
       <small>Let's go!</small>
-      <vs-button radius color="danger" type="gradient" icon="arrow_forward" />
+      <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
     </div>
   </article>
 </template>
@@ -131,6 +131,9 @@ export default {
       span { opacity: 0; }
       &:hover span { opacity: 1; }
     }
+  }
+  .flex .color-swatch {
+    cursor: move !important;
   }
 
   .commit {

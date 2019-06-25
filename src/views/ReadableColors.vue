@@ -4,7 +4,7 @@
     
     <router-link  to="/you-made-your-choice" class="next above">
       <small>And finally...</small>
-      <vs-button radius color="danger" type="gradient" icon="arrow_forward" />
+      <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
     </router-link>
   </section>
 </template>

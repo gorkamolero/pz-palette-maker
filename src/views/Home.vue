@@ -13,7 +13,7 @@
     </template>
     
     <div class="card pointer vertical" v-else>
-      <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="settings">
+      <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
         <vs-icon size="60px" icon="color_lens" />
         <span>Choose magically from image</span>
       </UpploadVue>
@@ -35,24 +35,23 @@ export default {
     UpploadVue,
   },
   data: () => ({
-    uploaded: false,
-    colorIsSet: false,
-    color: '',
-    settings: {
-      minimumDelay: 2000,
-      uploadFunction: file => (
-        new Promise((resolve, reject) => {
-          let url = URL.createObjectURL(file)
-          resolve(url)
-        })
-      )
+    uppload: {
+      settings: {
+        minimumDelay: 2000,
+        uploadFunction: file => (
+          new Promise((resolve, reject) => {
+            let url = URL.createObjectURL(file)
+            resolve(url)
+          })
+        )
+      }
     }
   }),
   mounted () {
-    this.colorIsSet = false
+    this.resetAllColors()
   },
   methods: {
-    ...mapMutations(['setIMG']),
+    ...mapMutations(['setIMG', 'resetAllColors']),
     onUpload(url) {
       this.setIMG(url)
       router.push('/image')

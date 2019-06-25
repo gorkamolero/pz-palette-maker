@@ -1,5 +1,7 @@
 <template>
   <article class="step puiSpaceOut">
+    <vs-button v-if="$route.meta.multi" @click="resetAllColors()" size="small" class="resetter" radius color="warning" type="filled" icon="autorenew" />
+    
     <div class="card">
       <vs-icon size="80px" icon="invert_colors" :color="localColor" />
       <span :style="{ color: localColor }">{{ $route.name }}</span>
@@ -8,20 +10,22 @@
     <div class="card">
       <div class="card-inner color-swatch-wrap">
         <template v-for="(color, index) in baseColors">
-          <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi }" @click="open(color, index)" :key="index">
-            <div class="color" :style="{backgroundColor: color}"></div>
+          <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi }" :key="index">
+            <vs-button @click="removeBaseColor(index)" size="small" class="remover" radius color="warning" type="filled" icon="remove" />
+            
+            <div class="color" @click="open(color, index)" :style="{backgroundColor: color}"></div>
             <span>{{ color }}</span>
           </div>
         </template>
       </div>
 
-      <vs-button radius v-if="$route.meta.multi" @click="addNewColor" color="danger" type="gradient" icon="add" size="small" />
+      <vs-button radius v-if="$route.meta.multi" @click="addNewColor" color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="add" size="small" />
 
       <cute-modal name="colorpick" class="colorpick" :on-close="close">
         <div class="flex-column">
           <Chrome :value="localColor" @input="setLocalColorFromPicker" />
           <div class="OK">
-            <vs-button @click="setNClose" radius color="danger" type="gradient" icon="done_outline" />
+            <vs-button @click="setNClose" radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="done_outline" />
           </div>
         </div>
       </cute-modal>
@@ -30,7 +34,7 @@
       <router-link  to="/readable-colors" class="next" v-if="baseColors.length">
         <small v-if="$route.meta.multi">I know what I'm doing</small>
         <small v-else>This is it</small>
-        <vs-button radius color="danger" type="gradient" icon="arrow_forward" />
+        <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
       </router-link>
     </div>
   </article>
@@ -38,7 +42,7 @@
 
 <script>
         // @input="onSetColor"
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 import Swatches from 'vue-swatches'
 import { Chrome } from 'vue-color'
 export default {
@@ -55,7 +59,13 @@ export default {
     localIndex: 0
   }),
   methods: {
-    ...mapMutations(['addBaseColor', 'setColorByIndex', 'setSingleBaseColor']),
+    ...mapMutations([
+      'addBaseColor',
+      'setColorByIndex',
+      'setSingleBaseColor',
+      'removeBaseColor',
+      'resetAllColors'
+    ]),
     addNewColor() {
       this.addBaseColor('#808080')
       this.$nextTick(() => this.open('#EEE', this.localIndex))
@@ -84,9 +94,11 @@ export default {
       this.close()
     },
     open(color, index) {
-      color && this.setLocalColor(color)
-      this.setLocalIndex(index)
       this.$cuteModal.open('colorpick')
+      this.$nextTick(() => {
+        this.setLocalColor(color)
+        this.setLocalIndex(index)
+      })
     },
     close(){
       this.onSetColor()
@@ -121,6 +133,8 @@ export default {
     margin-top: auto;
     display: flex;
     flex-direction: column;
+    position: relative;
+
     > span {
       font-size: 10px;
       padding: var(--space-s);
@@ -136,8 +150,8 @@ export default {
     &:hover { transform: scale(1.05) }
 
     &.single {
-      transform: scale(1.8);
-      &:hover { transform: scale(2.1) }
+      transform: scale(1.5);
+      &:hover { transform: scale(1.6) }
     }
 
     &-wrap {
@@ -145,6 +159,20 @@ export default {
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
+    }
+    .remover {
+      position: absolute;
+      top: 0; right: 0;
+      transform: scale(.75) translate(40%, -40%);
+      transform-origin: right top;
+      
+      opacity: 0;
+      transition: all var(--trans);
+
+      &:hover { transform: scale(.8) translate(40%, -40%); }
+    }
+    &:hover .remover {
+      opacity: 1;
     }
   }
 
@@ -160,6 +188,12 @@ export default {
     flex-direction: column;
     align-items: center;
     position: relative;
+  }
+
+  .resetter {
+    position: absolute;
+    top: 0; right: 0;
+    margin: var(--space-s);
   }
 
   .colorpick {

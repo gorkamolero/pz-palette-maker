@@ -3,7 +3,7 @@
     <div class="backButton" v-if="!$route.meta.hideArrow">
       <vs-button
       @click="goBack"
-      radius color="danger" type="gradient" icon="arrow_back" />
+      radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_back" />
       <small>Take me back</small>
     </div>
     <router-view></router-view>
