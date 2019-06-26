@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 const initState = () => ({
   img: '',
+  slides: 10,
   baseColor: '#808080',
   baseColors: [],
   widgetTextColor: 'black',
@@ -22,6 +23,9 @@ const store = {
     addBaseColor: (state, color) => state.baseColors.push(color),
     removeBaseColor: (state, index) => Vue.delete(state.baseColors, index),
     setBaseColors: (state, array) => array.forEach((color, index) => Vue.set(state.baseColors, index, color)),
+    setNumOfSlides: (state, number) => {
+      Vue.set(state, 'slides', number)
+    },
     resetAllColors: ({baseColors}) => {
       do {
         baseColors.pop()

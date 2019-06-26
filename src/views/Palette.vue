@@ -59,7 +59,6 @@ export default {
   data: () => ({
     bezier: true,
     lightness: true,
-    colorNumber: 15
   }),
   components: {
     SlickItem,
@@ -76,20 +75,21 @@ export default {
     },
     single () { return this.colors.length === 1 },
     multi () { return this.colors.length !== 1 },
+    slides () { return this.$store.state.slides }
   },
   methods: {
     colorScale() {
       let colorList = [...this.colors]
-      if(!this.colors && !this.colorNumber) return []
+      if(!this.colors && !this.slides) return []
       if(this.single) colorList = ['white', ...this.colors]
       if(this.bezier && this.lightness) return chroma.bezier(colorList)
                                                 .scale()
                                                 .correctLightness()
-                                                .colors(this.colorNumber)
+                                                .colors(this.slides)
       
-      if(!this.bezier && !this.lightness) return chroma.scale(colorList).colors(this.colorNumber)
-      if(this.bezier && !this.lightness) return chroma.bezier(colorList).scale().colors(this.colorNumber)
-      if(!this.bezier && this.lightness) return chroma.scale(colorList).correctLightness().colors(this.colorNumber)
+      if(!this.bezier && !this.lightness) return chroma.scale(colorList).colors(this.slides)
+      if(this.bezier && !this.lightness) return chroma.bezier(colorList).scale().colors(this.slides)
+      if(!this.bezier && this.lightness) return chroma.scale(colorList).correctLightness().colors(this.slides)
     }
   }
 }

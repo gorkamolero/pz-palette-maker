@@ -24,19 +24,31 @@ export default {
   store,
   name: 'app',
   components: { PZBoiler, },
-  props: ['layout', 'colors'],
-  created() {
-    const colors = this.colors.split(',').map(c => c.trim())
-    // Making sure
-    if (Array.isArray(colors) && colors.length > 0) {
-      console.log('I AM', colors)
-      window.colors = colors
-      this.setBaseColors(colors)
-      router.push('/choose-multiple-colors')
+  props: {
+    layout: {
+      type: String,
+      default: 'widget'
+    },
+    colors: String,
+    slides: {
+      type: String,
+      default: "10"
     }
   },
+  created() {
+    const colors = this.colors.split(',').map(c => c.trim())
+    let slides = Number(this.slides)
+
+    // Making sure we have a color array before proceeding 
+    if (!Array.isArray(colors) && !colors.length > 0) return
+    
+    this.setBaseColors(colors)
+    this.setNumOfSlides(slides)
+
+    router.push('/choose-multiple-colors')
+  },
   methods: {
-    ...mapMutations(['setBaseColors']),
+    ...mapMutations(['setBaseColors', 'setNumOfSlides']),
     goBack() { router.go(-1) }
   }
 } 
