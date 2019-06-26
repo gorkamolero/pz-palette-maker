@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import { SlickList, SlickItem } from 'vue-slicksort'
 import chroma from 'chroma-js'
 
@@ -77,7 +77,11 @@ export default {
     multi () { return this.colors.length !== 1 },
     slides () { return this.$store.state.slides }
   },
+  beforeDestroy() {
+    this.setFinalScale(this.colorScale())
+  },
   methods: {
+    ...mapMutations(['setFinalScale']),
     colorScale() {
       let colorList = [...this.colors]
       if(!this.colors && !this.slides) return []
