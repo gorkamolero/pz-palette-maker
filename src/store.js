@@ -37,7 +37,7 @@ const store = {
     getIMG: state => state.img,
     getBaseColor: state => state.baseColor,
     getBaseColors: state => state.baseColors,
-    getMode: state => state.mode,
+    getNumOfSlides: state => state.slides,
   },
   actions: {
     

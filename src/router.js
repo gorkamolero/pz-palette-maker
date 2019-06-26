@@ -5,6 +5,7 @@ import Image from './views/Image.vue'
 import ChooseColor from './views/ChooseColor.vue'
 import ReadableColors from './views/ReadableColors.vue'
 import Palette from './views/Palette.vue'
+import ThankYou from './views/ThankYou.vue'
 
 Vue.use(Router)
 
@@ -54,6 +55,11 @@ export default new Router({
       path: '/you-made-your-choice',
       name: 'Color palette',
       component: Palette,
+    },
+    {
+      path: '/thank-you',
+      name: 'Thank you',
+      component: ThankYou,
     },
   ]
 })

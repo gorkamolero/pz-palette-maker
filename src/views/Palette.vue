@@ -43,10 +43,10 @@
       </div>
     </div>
     
-    <div to="/you-made-your-choice" class="next">
+    <router-link to="/thank-you" class="next">
       <small>Let's go!</small>
       <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
-    </div>
+    </router-link>
   </article>
 </template>
 
