@@ -14,13 +14,13 @@
     
     <div class="card pointer vertical" v-else>
       <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
-        <vs-icon size="60px" icon="color_lens" />
+        <vs-icon size="60px" icon="camera" />        
         <span>Choose magically from image</span>
       </UpploadVue>
 
       <router-link to="/choose-multiple-colors" class="card pointer">
-        <vs-icon size="60px" icon="new_releases" />
-        <span>Choose your own</span>
+        <vs-icon size="60px" icon="color_lens" />
+        <span>Create your own palette</span>
       </router-link>
     </div>
   </nav>

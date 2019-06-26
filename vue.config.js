@@ -12,3 +12,5 @@ module.exports = {
       config.optimization.delete('splitChunks')
     }
 }
+
+

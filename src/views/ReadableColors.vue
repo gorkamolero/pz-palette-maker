@@ -33,10 +33,10 @@ export default {
     article + article { border-top: 1px solid gainsboro; }
   }
   .next.above {
-        top: 0;
-    transform: translateY(-100%);
+    top: 0; right: 0;
     z-index: 999;
-    right: 0;
     height: 60px;
+    color: white;
+    padding: var(--space-s);
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <PZBoiler id="app" class="pz-palette-maker">
+  <PZBoiler id="app" class="pz-palette-maker" :class="layout">
     <div class="backButton" v-if="!$route.meta.hideArrow">
       <vs-button
       @click="goBack"
@@ -11,46 +11,65 @@
 </template>
 
 <script>
-import PZBoiler from '@/components/core/PZBoiler'
 import router from '@/router'
 import store from './store'
+
+import { mapMutations } from 'vuex'
+
+import PZBoiler from '@/components/core/PZBoiler'
 import '@/tempstyles.scss'
 
 export default {
   router,
   store,
   name: 'app',
-  components: {
-    PZBoiler,
+  components: { PZBoiler, },
+  props: ['layout', 'colors'],
+  created() {
+    const colors = this.colors.split(',').map(c => c.trim())
+    // Making sure
+    if (Array.isArray(colors) && colors.length > 0) {
+      console.log('I AM', colors)
+      window.colors = colors
+      this.setBaseColors(colors)
+      router.push('/choose-multiple-colors')
+    }
   },
   methods: {
+    ...mapMutations(['setBaseColors']),
     goBack() { router.go(-1) }
   }
-}
+} 
 </script>
 
 <style lang="scss">
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 #app.pz-palette-maker {
   text-align: center;
-  width: 720px;
-  height: 480px;
-  margin: 0 auto;
-  border: 1px solid gainsboro;
   
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 100%;
+  height: 100%;
+
+  &.standalone {
+    width: 720px;
+    height: 480px;
+    margin: 0 auto;
+    border: 1px solid gainsboro;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   
   .backButton {
+    z-index: 9;
     position: absolute;
-    left: 0; top: -10px;
-    transform: translateY(-100%);
+    left: 0; top: 0;
+    padding: var(--space-s);
     display: flex;
     align-items: center;
     > * + * { margin-left: var(--space-s) }

@@ -1,6 +1,10 @@
 <template>
   <article class="step puiSpaceOut">
-    <vs-button v-if="$route.meta.multi" @click="resetAllColors()" size="small" class="resetter" radius color="warning" type="filled" icon="autorenew" />
+    <div class="next above">
+      <small>Reset...</small>
+      <vs-button v-if="$route.meta.multi" @click="resetAllColors()" size="small" class="resetter" radius color="warning" type="filled" icon="autorenew" />
+    </div>
+    
     
     <div class="card">
       <vs-icon size="80px" icon="invert_colors" :color="localColor" />
@@ -13,7 +17,7 @@
           <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi }" :key="index">
             <vs-button @click="removeBaseColor(index)" size="small" class="remover" radius color="warning" type="filled" icon="remove" />
             
-            <div class="color" @click="open(color, index)" :style="{backgroundColor: color}"></div>
+            <div class="color" @click="open(color, index)" :style="[{backgroundColor: color}]" :class="{border: color.includes('f') || color.includes('white')}"></div>
             <span>{{ color }}</span>
           </div>
         </template>

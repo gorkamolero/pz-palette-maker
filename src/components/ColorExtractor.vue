@@ -2,7 +2,7 @@
   <div>
     <img ref="image" :src="url" alt="" style="display: none;">
     <ul>
-      <li v-for="swatch in swatches">
+      <li v-for="(swatch, index) in coloursFromImage()" :key="index">
         <div class="$style.colorBox" :style="{ backgroundColor: swatch.hex }">
           <p>{{ swatch }}</p>
         </div>
@@ -23,11 +23,13 @@ export default {
     swatches: []
   }),
   mounted() {
-    Vibrant.from(this.$refs.image).getPalette((err, palette) => this.swatches = palette)
+    //Vibrant.from().getPalette((err, palette) => this.swatches = palette)
   },
   methods: {
-    getPalette() {
-      console.log(this.$refs)
+    async coloursFromImage() {
+      const palette = await Vibrant.from(this.$refs.image).getPalette() // Use the library to extract colors
+      const results = [palette.Vibrant, palette.LightVibrant, palette.DarkVibrant] // Create an array of the 3 most prominent colors
+      return results.filter(swatch => swatch != null); // Remove null swatches from the array
     }
   },
   components: {

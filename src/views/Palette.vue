@@ -2,8 +2,8 @@
   <article class="final step">
     <div class="card leftie">
       <div class="card-inner">
-        <h1>🎨 🎉 Ready! <span v-if="multi">Now rearrange to your liking! </span></h1>
-        <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
+        <h1>🎨 Ready!  🎉 <span v-if="multi">Now rearrange to your liking! </span></h1>
+        
 
         <br><br>
         
@@ -22,6 +22,7 @@
         </ul>
 
         <footer style="margin-top: auto;">
+          <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
           <small>
             Many thanks to <a href="https://twitter.com/driven_by_data">Gregor</a> from <a href="https://vis4.net" target="_blank">vis4</a> for the idea
           </small>
@@ -38,7 +39,7 @@
         </template>
       </div>
       <div class="commit">
-        <p>I'm happy with this palette. </p>
+        <p>If you're happy with this palette, proceed 👇</p>
       </div>
     </div>
     
