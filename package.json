@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login"
+    "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login",
+    "wc": "vue-cli-service build --target wc --name pz-palette-maker ./src/main.js"
   },
   "dependencies": {
     "@bit/pickzen.pui.core.pz-boiler": "^1.0.0",
