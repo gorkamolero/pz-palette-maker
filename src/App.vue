@@ -42,17 +42,20 @@ export default {
     onChange: String
   },
   created() {
-    const colors = this.colors.split(',').map(c => c.trim())
+    
     let slides = Number(this.slides)
 
     this.setGlobalMethod(this.onChange)
     this.setNumOfSlides(slides)
 
     // Making sure we have a color array before proceeding 
-    if (Array.isArray(colors) && colors.length > 0) {
-      this.setBaseColors(colors)
-      router.push('/choose-multiple-colors')
-    }    
+    if(this.colors) {
+      const colors = this.colors.split(',').map(c => c.trim())
+      if (Array.isArray(colors) && colors.length > 0) {
+        this.setBaseColors(colors)
+        router.push('/choose-multiple-colors')
+      }
+    }
   },
   methods: {
     ...mapMutations(['setBaseColors', 'setNumOfSlides', 'setGlobalMethod']),

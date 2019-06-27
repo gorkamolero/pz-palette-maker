@@ -21,4 +21,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.pz { font-family: 'Europa', sans-serif; }
+</style>
