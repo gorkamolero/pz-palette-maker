@@ -9,7 +9,7 @@
 import { mapGetters } from 'vuex'
 export default {
   mounted () {
-    window[this.getGlobalMethod](this.getFinalScale)
+    window.vuebridge[this.getGlobalMethod](this.getFinalScale)
   },
   computed: {
     ...mapGetters(['getFinalScale', 'getGlobalMethod'])
