@@ -2,19 +2,24 @@
   <section class="allColors">
     <ReadableColorItem v-for="(color, index) in colors" :key="index" :init="color" :index="index" />
     
-    <router-link  to="/you-made-your-choice" class="next above">
+    <NextPrev
+      icon="arrow_forward"
+      to="/you-made-your-choice"
+      bottom right>
       <small>And finally...</small>
-      <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
-    </router-link>
+    </NextPrev>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import ReadableColorItem from '@/components/ReadableColorItem'
+import NextPrev from '@/components/elements/NextPrev'
+
 export default {
   components: {
-    ReadableColorItem
+    ReadableColorItem,
+    NextPrev
   },
   computed: {
     ...mapGetters({
@@ -31,12 +36,5 @@ export default {
     display: flex;
     flex-direction: column;
     article + article { border-top: 1px solid gainsboro; }
-  }
-  .next.above {
-    top: 0; right: 0;
-    z-index: 999;
-    height: 60px;
-    color: white;
-    padding: var(--space-s);
   }
 </style>

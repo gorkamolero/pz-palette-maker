@@ -1,10 +1,14 @@
 <template>
   <article class="step puiSpaceOut">
-    <div class="next above">
+    <NextPrev
+      v-if="$route.meta.multi"
+      @click="resetAllColors()"
+      icon="autorenew"
+      top right
+    >
+
       <small>Reset...</small>
-      <vs-button v-if="$route.meta.multi" @click="resetAllColors()" size="small" class="resetter" radius color="warning" type="filled" icon="autorenew" />
-    </div>
-    
+    </NextPrev>    
     
     <div class="card">
       <vs-icon size="80px" icon="invert_colors" :color="localColor" />
@@ -34,12 +38,14 @@
         </div>
       </cute-modal>
 
-
-      <router-link  to="/readable-colors" class="next" v-if="baseColors.length">
+      <NextPrev
+        v-if="baseColors.length"
+        icon="arrow_forward"
+        to="/readable-colors"
+        bottom right>
         <small v-if="$route.meta.multi">I know what I'm doing</small>
         <small v-else>This is it</small>
-        <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
-      </router-link>
+      </NextPrev>
     </div>
   </article>
 </template>
@@ -49,10 +55,13 @@
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import Swatches from 'vue-swatches'
 import { Chrome } from 'vue-color'
+import NextPrev from '@/components/elements/NextPrev'
+
 export default {
   components: {
     Chrome,
-    Swatches
+    Swatches,
+    NextPrev
   },
   mounted() {
     if(this.baseColors.length) return
@@ -121,14 +130,6 @@ export default {
 <style lang="scss">
   .choose {
     display: flex;
-  }
-  .next {
-    position: absolute;
-    bottom: var(--space);
-    right: var(--space);
-    display: flex;
-    align-items: center;
-    > * + * { margin-left: var(--space-s) }
   }
 
   .color-swatch {
@@ -214,7 +215,8 @@ export default {
     }
     .vs-popup--title { display: none; }
     .vs-popup--content,
-    .vs-dialog-text {
+    .vs-dialog-text,
+    .cute-modal__body {
       padding: 0 !important;
     }
     .modal-base {
@@ -228,6 +230,5 @@ export default {
     .cute-modal__container {
       transition: opacity var(--trans) !important;
     }
-    .cute-modal__body { padding: 0; }
   }
 </style>

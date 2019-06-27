@@ -15,11 +15,13 @@
     <div class="card">
       <img class="original" ref="image" :src="img" alt="">
     </div>
-
-    <div class="next below" v-if="this.minReached">
+    <NextPrev
+      v-if="this.minReached"
+      icon="arrow_forward"
+      @click="setNGo"
+      bottom right>
       <small>I love these colors. Let's go!</small>
-      <vs-button @click="setNGo" radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
-    </div>
+    </NextPrev>
   </article>
 </template>
 
@@ -27,7 +29,12 @@
 import router from '@/router'
 import { mapMutations } from 'vuex'
 import * as Vibrant from 'node-vibrant'
+import NextPrev from '@/components/elements/NextPrev'
+
 export default {
+  components: {
+    NextPrev
+  },
   data: () => ({
     swatches: null,
     inactiveList: []
@@ -87,10 +94,5 @@ export default {
   }
   .color-swatch.active {
     border: 2px solid black;
-  }
-  .next.below {
-    bottom: 0; right: 0;
-    padding: var(--space);
-    transform: translateY(100%)
   }
 </style>

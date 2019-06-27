@@ -1,11 +1,14 @@
 <template>
   <PZBoiler id="app" class="pz-palette-maker">
-    <div class="backButton" v-if="!$route.meta.hideArrow">
-      <vs-button
+
+    <NextPrev
+       v-if="!$route.meta.hideArrow"
+      icon="arrow_back"
       @click="goBack"
-      radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_back" />
+      top left>
       <small>Take me back</small>
-    </div>
+    </NextPrev>
+
     <router-view></router-view>
   </PZBoiler>
 </template>

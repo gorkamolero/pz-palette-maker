@@ -1,11 +1,14 @@
 <template>
   <PZBoiler id="app" class="pz-palette-maker" :class="layout">
-    <div class="backButton" v-if="!$route.meta.hideArrow">
-      <vs-button
+    <NextPrev
+      prev
+      v-if="!$route.meta.hideArrow"
+      icon="arrow_back"
       @click="goBack"
-      radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_back" />
+      top left>
       <small>Take me back</small>
-    </div>
+    </NextPrev>
+
     <router-view></router-view>
   </PZBoiler>
 </template>
@@ -19,11 +22,13 @@ import { mapMutations } from 'vuex'
 import PZBoiler from '@/components/core/PZBoiler'
 import '@/tempstyles.scss'
 
+import NextPrev from '@/components/elements/NextPrev' 
+
 export default {
   router,
   store,
   name: 'app',
-  components: { PZBoiler, },
+  components: { PZBoiler, NextPrev },
   props: {
     layout: {
       type: String,

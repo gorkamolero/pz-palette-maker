@@ -42,11 +42,13 @@
         <p>If you're happy with this palette, proceed 👇</p>
       </div>
     </div>
-    
-    <router-link to="/thank-you" class="next">
+
+    <NextPrev
+      icon="arrow_forward"
+      to="/thank-you"
+      bottom right>
       <small>Let's go!</small>
-      <vs-button radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="arrow_forward" />
-    </router-link>
+    </NextPrev>
   </article>
 </template>
 
@@ -54,6 +56,7 @@
 import { mapGetters, mapMutations } from 'vuex'
 import { SlickList, SlickItem } from 'vue-slicksort'
 import chroma from 'chroma-js'
+import NextPrev from '@/components/elements/NextPrev'
 
 export default {
   data: () => ({
@@ -62,7 +65,8 @@ export default {
   }),
   components: {
     SlickItem,
-    SlickList
+    SlickList,
+    NextPrev
   },
   computed: {
     colors: {
