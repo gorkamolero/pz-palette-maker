@@ -52,11 +52,15 @@
 
 <script>
         // @input="onSetColor"
+import Vue from 'vue'
 import router from '@/router'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
+import CuteModal from 'vue-cute-modal'
 import Swatches from 'vue-swatches'
 import { Chrome } from 'vue-color'
 import NextPrev from '@/components/elements/NextPrev'
+
+Vue.use(CuteModal)
 
 export default {
   components: {
@@ -130,6 +134,11 @@ export default {
 </script>
 
 <style lang="scss">
+.pz {
+  // Modal CSS
+  @import '~vue-cute-modal/dist/vue-cute-modal.min.css';
+}
+
 .pz-palette-maker {
   .choose {
     display: flex;

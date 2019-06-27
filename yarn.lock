@@ -675,36 +675,29 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@bit/pickzen.pui.core.font-loader@1.0.0":
-  version "1.0.0"
-  resolved "https://node.bit.dev/pickzen.pui.core.font-loader/-/pickzen.pui.core.font-loader-1.0.0.tgz#c0355f90048300a67a4410f43d13bd0f264df64d"
-  integrity sha1-wDVfkASDAKZ6RBD0PRO9DyZN9k0=
+"@bit/pickzen.pui.core.font-loader@^1.0.1":
+  version "1.0.1"
+  resolved "https://node.bit.dev/pickzen.pui.core.font-loader/-/pickzen.pui.core.font-loader-1.0.1.tgz#859d94b0ba4f05f7b5ddadf65834e3b99df3df09"
+  integrity sha1-hZ2UsLpPBfe13a32WDTjuZ3z3wk=
   dependencies:
     webfontloader "^1.6.28"
 
-"@bit/pickzen.pui.core.pz-boiler@^1.0.0":
-  version "1.0.1"
-  resolved "https://node.bit.dev/pickzen.pui.core.pz-boiler/-/pickzen.pui.core.pz-boiler-1.0.1.tgz#44df51d2aa879c749776b974891f4787d63ff2d7"
-  integrity sha1-RN9R0qqHnHSXdrl0iR9Hh9Y/8tc=
+"@bit/pickzen.pui.core.styles@1.0.7":
+  version "1.0.7"
+  resolved "https://node.bit.dev/pickzen.pui.core.styles/-/pickzen.pui.core.styles-1.0.7.tgz#092f6296ce38055ef28a18aec90bf703bee892d1"
+  integrity sha1-CS9ils44BV7yihiuyQv3A77oktE=
   dependencies:
-    "@bit/pickzen.pui.core.font-loader" "1.0.0"
-    "@bit/pickzen.pui.core.styles" "1.0.2"
-    "@bit/pickzen.pui.core.vuesax-loader" "0.0.1"
-
-"@bit/pickzen.pui.core.styles@1.0.2":
-  version "1.0.2"
-  resolved "https://node.bit.dev/pickzen.pui.core.styles/-/pickzen.pui.core.styles-1.0.2.tgz#7cde8afc9394c8d3ec27649708f688af312d0439"
-  integrity sha1-fN6K/JOUyNPsJ2SXCPaIrzEtBDk=
+    vue2-animate "2.1.0"
 
 "@bit/pickzen.pui.core.typer@^0.0.1":
   version "0.0.1"
   resolved "https://node.bit.dev/pickzen.pui.core.typer/-/pickzen.pui.core.typer-0.0.1.tgz#77e34dcb0f72943525711977a5f125262c2ad192"
   integrity sha1-d+NNyw9ylDUlcRl3pfElJiwq0ZI=
 
-"@bit/pickzen.pui.core.vuesax-loader@0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/pickzen.pui.core.vuesax-loader/-/pickzen.pui.core.vuesax-loader-0.0.1.tgz#1ef83d2fcd938fce56b4c22880afc6eef1d695cf"
-  integrity sha1-Hvg9L82Tj85WtMIogK/G7vHWlc8=
+"@bit/pickzen.pui.core.vuesax-loader@^0.0.3":
+  version "0.0.3"
+  resolved "https://node.bit.dev/pickzen.pui.core.vuesax-loader/-/pickzen.pui.core.vuesax-loader-0.0.3.tgz#b6f2f4a95a034e6579e8d75bff33f566f730e636"
+  integrity sha1-tvL0qVoDTmV56Ndb/zP1Zvcw5jY=
   dependencies:
     vue "^2.6.10"
     vuesax "^3.8.74"
@@ -7922,11 +7915,6 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-modal-dialogs@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vue-modal-dialogs/-/vue-modal-dialogs-3.0.0.tgz#df92dc2d8d3b3104ed54d5f814f6881b87d58eb8"
-  integrity sha512-52x3DR3mfDLV0yubhoyiXuljRVNpu5EjHAWoKXPIqpVNx3E8DEs4mbXmDYP6xPIlIYfFiYN2aAlEhoMgXkjrBg==
-
 vue-observe-visibility@^0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/vue-observe-visibility/-/vue-observe-visibility-0.4.4.tgz#cf3e945bf80c1317a1c32bc516d6cfd4dda8f8fd"
@@ -7968,7 +7956,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue2-animate@^2.1.0:
+vue2-animate@2.1.0, vue2-animate@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue2-animate/-/vue2-animate-2.1.0.tgz#93eee5f381d8d6493bae0507bcad6b615fdacb7f"
   integrity sha512-OEuwx9Y2dmx3+hQ/K7zLc514v4xhc8tGDQl/ZTJh06r+/EG/oYQkhy2Fo4OOhDwiRJYFuTfkFhGlDtTnT4XGsw==

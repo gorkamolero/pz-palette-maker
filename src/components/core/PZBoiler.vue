@@ -1,49 +1,23 @@
 <template>
-  <transition name="fadeUp">
-    <div class="loader" v-show="isLoaded">
-      <FontLoader @fontLoaded="onFontLoaded" />
-      <VuesaxLoader @vuesaxLoaded="onVuesaxLoaded" />
-      <Styles />
-      <slot />
-    </div>
-  </transition>
+  <div class="pz loader">
+    <Styles />
+    <slot />
+  </div>
 </template>
 
 <script>
-import Styles from '@bit/pickzen.pui.core.styles/Styles'
-import FontLoader from '@bit/pickzen.pui.core.font-loader/FontLoader.vue'
 import 'material-icons/iconfont/material-icons.css'
-import VuesaxLoader from '@bit/pickzen.pui.core.vuesax-loader/VuesaxLoader.vue'
+import '@bit/pickzen.pui.core.font-loader/FontLoader.js'
+import '@bit/pickzen.pui.core.vuesax-loader/VuesaxLoader.js'
+import Styles from '@bit/pickzen.pui.core.styles/Styles'
 
 import '@/utils/filters'
 import '@/plugins/observeVisibility'
-import '@/plugins/modal'
 
 export default {
   components: {
-    VuesaxLoader,
-    FontLoader,
     Styles,
   },
-  data: () => ({
-    vuesaxLoaded: false,
-    fontLoaded: false
-  }),
-  methods: {
-    onVuesaxLoaded () {
-      // eslint-disable-next-line
-      console.log('✔ Vuesax loaded!')
-      this.vuesaxLoaded = true
-    },
-    onFontLoaded () {
-      // eslint-disable-next-line
-      console.log('✔ Font is loaded!')
-      this.fontLoaded = true
-    }
-  },
-  computed: {
-    isLoaded: self => self.vuesaxLoaded && self.fontLoaded
-  }
 }
 </script>
 
