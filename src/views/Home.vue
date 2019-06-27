@@ -67,8 +67,11 @@ export default {
 
 <style lang="scss">
 .pz-palette-maker {
-  position: relative;
+  color: var(--text-light);
   font-size: 14px;
+
+  a, a:visited { color: inherit; }
+  button { font-family: inherit; }
 
   .step {
     height: 100%;
@@ -123,9 +126,13 @@ export default {
     font-weight: 300;
     margin-bottom: .3rem;
   }
-
-  .uppload-branding {
-    display: none;
-  }
+  position: relative;
+}
+.uppload-branding { display: none !important; }
+.uppload-modal .center-middle {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 </style>

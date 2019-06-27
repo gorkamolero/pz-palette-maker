@@ -4,7 +4,7 @@
       prev
       v-if="!$route.meta.hideArrow"
       icon="arrow_back"
-      @click="goBack"
+      @click.native="goBack"
       top left>
       <small>Take me back</small>
     </NextPrev>
@@ -62,8 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
-
-#app.pz-palette-maker {
+.pz-palette-maker {
   text-align: center;
   
   display: flex;

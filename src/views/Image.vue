@@ -2,7 +2,7 @@
   <article class="step image">
     <div class="card">
       <div class="card-inner color-swatch-wrap">
-        <h1>Please de-select to reach a maximum of four</h1>
+        <h1>❕ Please de-select to reach a maximum of four</h1>
         <template v-for="(color, index) in swatches">
           <div class="color-swatch" :class="{active: isActive(color.hex)}" @click="toggleInactive(color.hex)" :key="index">
             <div class="color" :style="{backgroundColor: color.hex}"></div>
@@ -18,7 +18,7 @@
     <NextPrev
       v-if="this.minReached"
       icon="arrow_forward"
-      @click="setNGo"
+      @click.native="setNGo"
       bottom right>
       <small>I love these colors. Let's go!</small>
     </NextPrev>
@@ -78,7 +78,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.pz-palette-maker {
   .original {
     position: absolute;
     top: 0;
@@ -95,4 +96,5 @@ export default {
   .color-swatch.active {
     border: 2px solid black;
   }
+}
 </style>

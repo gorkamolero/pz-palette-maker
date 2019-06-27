@@ -2,7 +2,7 @@
   <article class="step puiSpaceOut">
     <NextPrev
       v-if="$route.meta.multi"
-      @click="resetAllColors()"
+      @click.native="reset()"
       icon="autorenew"
       top right
     >
@@ -52,6 +52,7 @@
 
 <script>
         // @input="onSetColor"
+import router from '@/router'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import Swatches from 'vue-swatches'
 import { Chrome } from 'vue-color'
@@ -79,6 +80,7 @@ export default {
       'removeBaseColor',
       'resetAllColors'
     ]),
+    reset () { router.push('/') },
     addNewColor() {
       this.addBaseColor('#808080')
       this.$nextTick(() => this.open('#EEE', this.localIndex))
@@ -128,6 +130,7 @@ export default {
 </script>
 
 <style lang="scss">
+.pz-palette-maker {
   .choose {
     display: flex;
   }
@@ -231,4 +234,5 @@ export default {
       transition: opacity var(--trans) !important;
     }
   }
+}
 </style>

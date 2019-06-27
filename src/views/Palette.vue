@@ -104,6 +104,7 @@ export default {
 </script>
 
 <style lang="scss">
+.pz-palette-maker {
   .flex {
     display: flex;
     //justify-content: flex-start;
@@ -154,4 +155,5 @@ export default {
 
     > * + * { margin-top: var(--space-s); }
   }
+}
 </style>

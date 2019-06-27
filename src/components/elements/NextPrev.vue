@@ -45,6 +45,8 @@ export default {
     position: absolute;
     display: flex;
     align-items: center;
+
+    &, * { cursor: pointer; }
     &:not(.reverse) {
       > * + * { margin-left: var(--space-s); }
     }
