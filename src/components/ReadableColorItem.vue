@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="scss">
-.pz-palette-maker {
+.pz.pz-palette-maker {
   .many {
     display: flex;
   }

@@ -24,7 +24,9 @@ export default {
 </script>
 
 <style lang="scss">
+
   .pui.ui-fab {
+    cursor: pointer;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.03);
     background: linear-gradient(30deg, rgb(248, 152, 29) 0%, rgb(255, 184, 93) 100%);
     transition: all var(--trans);

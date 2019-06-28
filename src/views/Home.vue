@@ -67,11 +67,11 @@ export default {
 </script>
 
 <style lang="scss">
-.pz-palette-maker {
+.pz.pz-palette-maker {
   color: var(--text-light);
   font-size: 14px;
 
-  a, a:visited { color: inherit; }
+  a, a:visited { color: inherit; text-decoration: none; }
   button { font-family: inherit; }
 
   .step {
