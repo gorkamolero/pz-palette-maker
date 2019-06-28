@@ -3,7 +3,7 @@
     <ReadableColorItem v-for="(color, index) in colors" :key="index" :init="color" :index="index" />
     
     <NextPrev
-      icon="arrow_forward"
+      icon="arrow-right"
       to="/you-made-your-choice"
       bottom right>
       <small>And finally...</small>
@@ -14,12 +14,10 @@
 <script>
 import { mapGetters } from 'vuex'
 import ReadableColorItem from '@/components/ReadableColorItem'
-import NextPrev from '@/components/elements/NextPrev'
 
 export default {
   components: {
     ReadableColorItem,
-    NextPrev
   },
   computed: {
     ...mapGetters({

@@ -44,7 +44,7 @@
     </div>
 
     <NextPrev
-      icon="arrow_forward"
+      icon="arrow-right"
       to="/thank-you"
       bottom right>
       <small>Let's go!</small>
@@ -56,7 +56,6 @@
 import { mapGetters, mapMutations } from 'vuex'
 import { SlickList, SlickItem } from 'vue-slicksort'
 import chroma from 'chroma-js'
-import NextPrev from '@/components/elements/NextPrev'
 
 export default {
   data: () => ({
@@ -66,7 +65,6 @@ export default {
   components: {
     SlickItem,
     SlickList,
-    NextPrev
   },
   computed: {
     colors: {

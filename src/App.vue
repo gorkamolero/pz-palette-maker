@@ -3,7 +3,7 @@
     <NextPrev
       prev
       v-if="!$route.meta.hideArrow"
-      icon="arrow_back"
+      icon="arrow-left"
       @click.native="goBack"
       top left>
       <small>Take me back</small>
@@ -22,13 +22,11 @@ import { mapMutations } from 'vuex'
 import PZBoiler from '@/components/core/PZBoiler'
 import '@/tempstyles.scss'
 
-import NextPrev from '@/components/elements/NextPrev'
-
 export default {
   router,
   store,
   name: 'app',
-  components: { PZBoiler, NextPrev },
+  components: { PZBoiler },
   props: {
     layout: {
       type: String,
@@ -83,17 +81,6 @@ export default {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-  }
-
-  
-  .backButton {
-    z-index: 9;
-    position: absolute;
-    left: 0; top: 0;
-    padding: var(--space-s);
-    display: flex;
-    align-items: center;
-    > * + * { margin-left: var(--space-s) }
   }
 }
 </style>

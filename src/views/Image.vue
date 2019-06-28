@@ -17,7 +17,7 @@
     </div>
     <NextPrev
       v-if="this.minReached"
-      icon="arrow_forward"
+      icon="arrow-right"
       @click.native="setNGo"
       bottom right>
       <small>I love these colors. Let's go!</small>
@@ -29,12 +29,8 @@
 import router from '@/router'
 import { mapMutations } from 'vuex'
 import * as Vibrant from 'node-vibrant'
-import NextPrev from '@/components/elements/NextPrev'
 
 export default {
-  components: {
-    NextPrev
-  },
   data: () => ({
     swatches: null,
     inactiveList: []

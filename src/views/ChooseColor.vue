@@ -3,7 +3,7 @@
     <NextPrev
       v-if="$route.meta.multi"
       @click.native="reset()"
-      icon="autorenew"
+      icon="backward"
       top right
     >
 
@@ -18,8 +18,13 @@
     <div class="card">
       <div class="card-inner color-swatch-wrap">
         <template v-for="(color, index) in baseColors">
-          <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi }" :key="index">
-            <vs-button @click="removeBaseColor(index)" size="small" class="remover" radius color="warning" type="filled" icon="remove" />
+          <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi && baseColors.length !== 0 }" :key="index">
+            <div class="remover">
+              <puiButton @click.native="removeBaseColor(index)" fab size="small">
+                <v-icon color="white" name="minus" />
+              </puiButton>
+            </div>
+            
             
             <div class="color" @click="open(color, index)" :style="[{backgroundColor: color}]" :class="{border: color.includes('f') || color.includes('white')}"></div>
             <span>{{ color }}</span>
@@ -27,20 +32,24 @@
         </template>
       </div>
 
-      <vs-button radius v-if="$route.meta.multi" @click="addNewColor" color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="add" size="small" />
+      <puiButton v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
+        <v-icon color="white" name="plus" />
+      </puiButton>
 
       <cute-modal name="colorpick" class="colorpick" :on-close="close">
         <div class="flex-column">
           <Chrome :value="localColor" @input="setLocalColorFromPicker" />
           <div class="OK">
-            <vs-button @click="setNClose" radius color="#f8981d" gradient-color-secondary="#ffb85d" type="gradient" icon="done_outline" />
+            <puiButton @click.native="setNClose" fab size="small">
+              <v-icon color="white" name="check" />
+            </puiButton>
           </div>
         </div>
       </cute-modal>
 
       <NextPrev
         v-if="baseColors.length"
-        icon="arrow_forward"
+        icon="arrow-right"
         to="/readable-colors"
         bottom right>
         <small v-if="$route.meta.multi">I know what I'm doing</small>
@@ -58,7 +67,6 @@ import { mapMutations, mapGetters, mapActions } from 'vuex'
 import CuteModal from 'vue-cute-modal'
 import Swatches from 'vue-swatches'
 import { Chrome } from 'vue-color'
-import NextPrev from '@/components/elements/NextPrev'
 
 Vue.use(CuteModal)
 
@@ -66,7 +74,6 @@ export default {
   components: {
     Chrome,
     Swatches,
-    NextPrev
   },
   mounted() {
     if(this.baseColors.length) return
@@ -169,6 +176,7 @@ export default {
     &.single {
       transform: scale(1.5);
       &:hover { transform: scale(1.6) }
+      &:not(:last-of-type) { display: none; }
     }
 
     &-wrap {
@@ -180,13 +188,13 @@ export default {
     .remover {
       position: absolute;
       top: 0; right: 0;
-      transform: scale(.75) translate(40%, -40%);
+      transform: scale(.5) translate(40%, -40%);
       transform-origin: right top;
       
       opacity: 0;
       transition: all var(--trans);
 
-      &:hover { transform: scale(.8) translate(40%, -40%); }
+      &:hover { transform: scale(.55) translate(40%, -40%); }
     }
     &:hover .remover {
       opacity: 1;

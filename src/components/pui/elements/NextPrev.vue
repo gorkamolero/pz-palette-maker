@@ -1,15 +1,15 @@
 <template>
   <component :is="dynamicComp" class="NextPrev" :to="to" :class="{'reverse': prev}" :style="position">
     <slot />
-    <vs-button
-      radius
-      type="gradient"
-      color="#f8981d" gradient-color-secondary="#ffb85d"
-      :icon="icon" />
+
+    <puiButton fab size="small">
+      <v-icon color="white" :name="icon" />
+    </puiButton>
   </component>
 </template>
 
 <script>
+
 export default {
   props: {
     prev: Boolean,

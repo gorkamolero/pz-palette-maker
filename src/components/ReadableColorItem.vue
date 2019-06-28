@@ -54,7 +54,6 @@ export default {
   },
   methods: {
     initColors() {
-      console.log(this.init)
       this.color = chroma(this.init)
       this.textColor = chroma(this.widgetTextColor)
     },
