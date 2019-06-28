@@ -22,7 +22,7 @@ import { mapMutations } from 'vuex'
 import PZBoiler from '@/components/core/PZBoiler'
 import '@/tempstyles.scss'
 
-import NextPrev from '@/components/elements/NextPrev' 
+import NextPrev from '@/components/elements/NextPrev'
 
 export default {
   router,

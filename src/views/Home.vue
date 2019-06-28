@@ -1,25 +1,25 @@
 <template>
   <nav class="step">
     <router-link class="card pointer" to="/choose-one-color">
-      <vs-icon size="80px" icon="invert_colors" />
+      <v-icon name="tint" scale="4"/>
       <span>One Color</span>
     </router-link>
 
     <template v-if="!$route.meta.split">
       <router-link to="/multi-color" class="card pointer">
-        <vs-icon size="80px" icon="color_lens" />
+        <v-icon name="palette" scale="4"/>
         <span>Multiple Colors</span>
       </router-link>
     </template>
     
     <div class="card pointer vertical" v-else>
       <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
-        <vs-icon size="60px" icon="camera" />        
+        <v-icon name="image" scale="4"/>
         <span>Choose magically from image</span>
       </UpploadVue>
 
       <router-link to="/choose-multiple-colors" class="card pointer">
-        <vs-icon size="60px" icon="color_lens" />
+        <v-icon name="paint-brush" scale="4"/>
         <span>Create your own palette</span>
       </router-link>
     </div>
@@ -30,6 +30,7 @@
 import router from '@/router'
 import UpploadVue from 'uppload-vue'
 import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   components: {
     UpploadVue,

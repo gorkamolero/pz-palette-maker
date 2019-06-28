@@ -11,6 +11,7 @@ import '@bit/pickzen.pui.core.font-loader/FontLoader.js'
 import '@bit/pickzen.pui.core.vuesax-loader/VuesaxLoader.js'
 import Styles from '@bit/pickzen.pui.core.styles/Styles'
 
+import '@/components/pui/pui-loader'
 import '@/utils/filters'
 import '@/plugins/observeVisibility'
 

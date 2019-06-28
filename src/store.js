@@ -30,7 +30,6 @@ const store = {
     resetAllColors: ({baseColors}) => {
       do {
         baseColors.pop()
-        console.log(baseColors)
       } while (baseColors.length > 0)
     },
   },

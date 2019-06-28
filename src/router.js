@@ -38,13 +38,19 @@ export default new Router({
       path: '/choose-one-color',
       name: 'One Color',
       component: ChooseColor,
-      meta: { multi: false }
+      meta: {
+        multi: false,
+        icon: 'tint'
+      }
     },
     {
       path: '/choose-multiple-colors',
       name: 'Multiple Colors',
       component: ChooseColor,
-      meta: { multi: true }
+      meta: {
+        multi: true,
+        icon: 'palette'
+      }
     },
     {
       path: '/readable-colors',

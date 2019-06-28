@@ -11,7 +11,7 @@
     </NextPrev>    
     
     <div class="card">
-      <vs-icon size="80px" icon="invert_colors" :color="localColor" />
+      <v-icon :name="$route.meta.icon" scale="4" :style="{'fill': localColor}"/>
       <span :style="{ color: localColor }">{{ $route.name }}</span>
     </div>
 
