@@ -682,25 +682,12 @@
   dependencies:
     webfontloader "^1.6.28"
 
-"@bit/pickzen.pui.core.styles@1.0.7":
-  version "1.0.7"
-  resolved "https://node.bit.dev/pickzen.pui.core.styles/-/pickzen.pui.core.styles-1.0.7.tgz#092f6296ce38055ef28a18aec90bf703bee892d1"
-  integrity sha1-CS9ils44BV7yihiuyQv3A77oktE=
+"@bit/pickzen.pui.core.styles@^1.0.8":
+  version "1.0.8"
+  resolved "https://node.bit.dev/pickzen.pui.core.styles/-/pickzen.pui.core.styles-1.0.8.tgz#eaad522a1bda632e89b1836627b8795660eb2cd7"
+  integrity sha1-6q1SKhvaYy6JsYNmJ7h5VmDrLNc=
   dependencies:
     vue2-animate "2.1.0"
-
-"@bit/pickzen.pui.core.typer@^0.0.1":
-  version "0.0.1"
-  resolved "https://node.bit.dev/pickzen.pui.core.typer/-/pickzen.pui.core.typer-0.0.1.tgz#77e34dcb0f72943525711977a5f125262c2ad192"
-  integrity sha1-d+NNyw9ylDUlcRl3pfElJiwq0ZI=
-
-"@bit/pickzen.pui.core.vuesax-loader@^0.0.3":
-  version "0.0.3"
-  resolved "https://node.bit.dev/pickzen.pui.core.vuesax-loader/-/pickzen.pui.core.vuesax-loader-0.0.3.tgz#b6f2f4a95a034e6579e8d75bff33f566f730e636"
-  integrity sha1-tvL0qVoDTmV56Ndb/zP1Zvcw5jY=
-  dependencies:
-    vue "^2.6.10"
-    vuesax "^3.8.74"
 
 "@hapi/address@2.x.x":
   version "2.0.0"
@@ -5010,16 +4997,6 @@ material-colors@^1.0.0:
   resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
   integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
 
-material-icons@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-0.3.1.tgz#425e06e2448632d6249d6e1ffe2993682c5b171e"
-  integrity sha512-5Hbj76A6xDPcDZEbM4oxTknhWuMwGWnAHVLLPCEq9eVlcHb0fn4koU9ZeyMy1wjARtDEPAHfd5ZdL2Re5hf0zQ==
-
-md-svg-vue@^1.0.20:
-  version "1.0.20"
-  resolved "https://registry.yarnpkg.com/md-svg-vue/-/md-svg-vue-1.0.20.tgz#c0343500189af2ced1a03c2a538a21574fd896f4"
-  integrity sha512-8z2fPCeCQuzsx5YJkfsHpVUp1TbwxUsugMaUHzdZU8cf2reH8K8ve7rknPrfAnOEoo/s6TpA6nQ9Q6i2jDW9EQ==
-
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -6417,13 +6394,6 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
-
-pug-plain-loader@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/pug-plain-loader/-/pug-plain-loader-1.0.0.tgz#cef2a984c90251882109ec2d417a6b433aa6b42a"
-  integrity sha512-mDfq/qvJJ0xdug38mZ1ObW0BQTx9kAHnKqotXC+C00XQkKmsWaMe90JUg/kN4lS6MU7tpVsMZ+rmcnBSPfDtHA==
-  dependencies:
-    loader-utils "^1.1.0"
 
 pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
@@ -7931,11 +7901,6 @@ vue-awesome@^3.5.4:
   resolved "https://registry.yarnpkg.com/vue-awesome/-/vue-awesome-3.5.4.tgz#da14ca20a3c6415c72823a7f743022f2dbd0183f"
   integrity sha512-RRuo08A6mFye2RyLVdnODH5kyLiHANMl9EzKXZXCeMrsP4SY3nyjkQnTGlgbbVOBQuaGBMrFp9HPOJYDaVNk/w==
 
-vue-cli-plugin-pz-boiler@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/vue-cli-plugin-pz-boiler/-/vue-cli-plugin-pz-boiler-0.1.3.tgz#b1a0ee7ac248984a2e37d3ff98c81b474f1a5403"
-  integrity sha512-iFyz4qcV1hhk4KZIp7kwzGb9vfDQQVcTJ+ccR1wLs8uN2oiE9duPneUGO9KURa7NsMJJzmouX1ZWzEYOm3eJGw==
-
 vue-color@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/vue-color/-/vue-color-2.7.0.tgz#31e898370a5786fd6c3007388cb7242db6ba6988"
@@ -8021,18 +7986,10 @@ vue2-animate@2.1.0, vue2-animate@^2.1.0:
   resolved "https://registry.yarnpkg.com/vue2-animate/-/vue2-animate-2.1.0.tgz#93eee5f381d8d6493bae0507bcad6b615fdacb7f"
   integrity sha512-OEuwx9Y2dmx3+hQ/K7zLc514v4xhc8tGDQl/ZTJh06r+/EG/oYQkhy2Fo4OOhDwiRJYFuTfkFhGlDtTnT4XGsw==
 
-vue@^2.5.2, vue@^2.6.10, vue@^2.6.9:
+vue@^2.5.2, vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
-
-vuesax@^3.8.74:
-  version "3.8.75"
-  resolved "https://registry.yarnpkg.com/vuesax/-/vuesax-3.8.75.tgz#3d0decdd723537984d2b395c70106213f70871d1"
-  integrity sha512-kCYy9FXlRMCRAhtO1BXT0hcPTsi1Lrur8MJnPh5CcNwgsCstJjLkU4WfZhuIeN+lY234sIhkxmEXzqIk+LoIIg==
-  dependencies:
-    chalk "^2.4.2"
-    vue "^2.6.9"
 
 vuex@^3.0.1:
   version "3.1.1"
