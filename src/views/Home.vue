@@ -5,64 +5,23 @@
       <span>One Color</span>
     </router-link>
 
-    <template v-if="!$route.meta.split">
-      <router-link to="/multi-color" class="card pointer">
-        <v-icon name="palette" scale="4"/>
-        <span>Multiple Colors</span>
-      </router-link>
-    </template>
-    
-    <div class="card pointer vertical" v-else>
-      <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
-        <v-icon name="image" scale="4"/>
-        <span>Choose magically from image</span>
-      </UpploadVue>
-
-      <router-link to="/choose-multiple-colors" class="card pointer">
-        <v-icon name="paint-brush" scale="4"/>
-        <span>Create your own palette</span>
-      </router-link>
-    </div>
+    <router-link to="/multi-color" class="card pointer">
+      <v-icon name="palette" scale="4"/>
+      <span>Multiple Colors</span>
+    </router-link>
   </nav>
 </template>
 
 <script>
-import router from '@/router'
-import UpploadVue from 'uppload-vue'
-import { mapGetters, mapMutations } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
-  components: {
-    UpploadVue,
-  },
-  data: () => ({
-    uppload: {
-      settings: {
-        minimumDelay: 2000,
-        uploadFunction: file => (
-          new Promise((resolve, reject) => {
-            let url = URL.createObjectURL(file)
-            resolve(url)
-          })
-        )
-      }
-    }
-  }),
   mounted () {
     this.resetAllColors()
   },
   methods: {
-    ...mapMutations(['setIMG', 'resetAllColors']),
-    onUpload(url) {
-      this.setIMG(url)
-      router.push('/image')
-    },
+    ...mapMutations(['resetAllColors']),
   },
-  computed: {
-    ...mapGetters({
-      url: 'getIMG'
-    })
-  }
 }
 </script>
 

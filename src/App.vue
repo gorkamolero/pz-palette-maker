@@ -1,11 +1,12 @@
 <template>
-  <PZBoiler id="app" class="pz-palette-maker" :class="layout">
+  <PZBoiler class="pz pz-palette-maker" :class="layout">
     <NextPrev
       prev
       v-if="!$route.meta.hideArrow"
       icon="arrow-left"
       @click.native="goBack"
-      top left>
+      top left
+      style="z-index: 1;">
       <small>Take me back</small>
     </NextPrev>
 
@@ -19,13 +20,16 @@ import store from './store'
 
 import { mapMutations } from 'vuex'
 
-import PZBoiler from '@/components/core/PZBoiler'
+// We separate this as a library
+const PZBoiler = () => import ( /* webpackChunkName: "pz-boiler" */ '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue')
+// import PZBoiler from '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue'
+
 import '@/tempstyles.scss'
 
 export default {
   router,
   store,
-  name: 'app',
+  name: 'pz-palette-maker',
   components: { PZBoiler },
   props: {
     layout: {

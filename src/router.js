@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// Dynamic: const Foo = () => import('./Foo.vue')
 import Home from './views/Home.vue'
-import Image from './views/Image.vue'
-import ChooseColor from './views/ChooseColor.vue'
-import ReadableColors from './views/ReadableColors.vue'
-import Palette from './views/Palette.vue'
+import Home2 from './views/Home-2.vue'
+// Image bundle
+const Image = () => import(/* webpackChunkName: "second-load" */ './views/Image.vue')
+const ChooseColor = () => import(/* webpackChunkName: "second-load" */ './views/ChooseColor.vue')
+const ReadableColors = () => import(/* webpackChunkName: "second-load" */ './views/ReadableColors.vue')
+const Palette = () => import(/* webpackChunkName: "second-load" */ './views/Palette.vue')
+
 import ThankYou from './views/ThankYou.vue'
 
 Vue.use(Router)
@@ -24,7 +28,7 @@ export default new Router({
     {
       path: '/multi-color',
       name: 'One Multi',
-      component: Home,
+      component: Home2,
       meta: {
         split: true
       }
