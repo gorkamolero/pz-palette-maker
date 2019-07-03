@@ -2,12 +2,12 @@
   <section class="allColors">
     <ReadableColorItem v-for="(color, index) in colors" :key="index" :init="color" :index="index" />
     
-    <NextPrev
+    <pui-next-prev
       icon="arrow-right"
       to="/you-made-your-choice"
       bottom right>
       <small>And finally...</small>
-    </NextPrev>
+    </pui-next-prev>
   </section>
 </template>
 

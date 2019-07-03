@@ -1,12 +1,12 @@
 <template>
   <nav class="step">
     <router-link class="card pointer" to="/choose-one-color">
-      <v-icon name="tint" scale="4"/>
+      <pui-icon icon="tint" :scale="4"/>
       <span>One Color</span>
     </router-link>
 
     <router-link to="/multi-color" class="card pointer">
-      <v-icon name="palette" scale="4"/>
+      <pui-icon icon="palette" :scale="4"/>
       <span>Multiple Colors</span>
     </router-link>
   </nav>

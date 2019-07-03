@@ -1,18 +1,18 @@
 <template>
   <nav class="step">
     <router-link class="card pointer" to="/choose-one-color">
-      <v-icon name="tint" scale="4"/>
+      <pui-icon icon="tint" :scale="4"/>
       <span>One Color</span>
     </router-link>
     
     <div class="card pointer vertical">
       <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
-        <v-icon name="image" scale="4"/>
+        <pui-icon icon="image" :scale="4"/>
         <span>Choose magically from image</span>
       </UpploadVue>
 
       <router-link to="/choose-multiple-colors" class="card pointer">
-        <v-icon name="paint-brush" scale="4"/>
+        <pui-icon icon="paint-brush" :scale="4"/>
         <span>Create your own palette</span>
       </router-link>
     </div>

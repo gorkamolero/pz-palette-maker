@@ -1,6 +1,6 @@
 <template>
   <PZBoiler class="pz pz-palette-maker" :class="layout">
-    <NextPrev
+    <pui-next-prev
       prev
       v-if="!$route.meta.hideArrow"
       icon="arrow-left"
@@ -8,7 +8,7 @@
       top left
       style="z-index: 1;">
       <small>Take me back</small>
-    </NextPrev>
+    </pui-next-prev>
 
     <router-view></router-view>
   </PZBoiler>

@@ -43,12 +43,12 @@
       </div>
     </div>
 
-    <NextPrev
+    <pui-next-prev
       icon="arrow-right"
       to="/thank-you"
       bottom right>
       <small>Let's go!</small>
-    </NextPrev>
+    </pui-next-prev>
   </article>
 </template>
 

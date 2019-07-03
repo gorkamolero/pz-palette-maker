@@ -9,7 +9,6 @@
 import '@bit/pickzen.pui.core.font-loader/FontLoader.js'
 import Styles from '@bit/pickzen.pui.core.styles/Styles'
 
-import './pui-loader'
 import './utils/filters'
 import './plugins/observeVisibility'
 

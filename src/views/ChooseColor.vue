@@ -1,6 +1,6 @@
 <template>
   <article class="step puiSpaceOut">
-    <NextPrev
+    <pui-next-prev
       v-if="$route.meta.multi"
       @click.native="reset()"
       icon="backward"
@@ -8,10 +8,10 @@
     >
 
       <small>Reset...</small>
-    </NextPrev>    
+    </pui-next-prev>    
     
     <div class="card">
-      <v-icon :name="$route.meta.icon" scale="4" :style="{'fill': localColor}"/>
+      <pui-icon :icon="$route.meta.icon" :scale="4" :style="{'fill': localColor}"/>
       <span :style="{ color: localColor }">{{ $route.name }}</span>
     </div>
 
@@ -20,9 +20,9 @@
         <template v-for="(color, index) in baseColors">
           <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi && baseColors.length !== 0 }" :key="index">
             <div class="remover">
-              <puiButton @click.native="removeBaseColor(index)" fab size="small">
-                <v-icon color="white" name="minus" />
-              </puiButton>
+              <pui-button @click.native="removeBaseColor(index)" fab size="small">
+                <pui-icon color="white" icon="minus" />
+              </pui-button>
             </div>
             
             
@@ -32,29 +32,29 @@
         </template>
       </div>
 
-      <puiButton v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
-        <v-icon color="white" name="plus" />
-      </puiButton>
+      <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
+        <pui-icon color="white" icon="plus" />
+      </pui-button>
 
       <cute-modal name="colorpick" class="colorpick" :on-close="close">
         <div class="flex-column">
           <Chrome :value="localColor" @input="setLocalColorFromPicker" />
           <div class="OK">
-            <puiButton @click.native="setNClose" fab size="small">
-              <v-icon color="white" name="check" />
-            </puiButton>
+            <pui-button @click.native="setNClose" fab size="small">
+              <pui-icon color="white" icon="check" />
+            </pui-button>
           </div>
         </div>
       </cute-modal>
 
-      <NextPrev
+      <pui-next-prev
         v-if="baseColors.length"
         icon="arrow-right"
         to="/readable-colors"
         bottom right>
         <small v-if="$route.meta.multi">I know what I'm doing</small>
         <small v-else>This is it</small>
-      </NextPrev>
+      </pui-next-prev>
     </div>
   </article>
 </template>

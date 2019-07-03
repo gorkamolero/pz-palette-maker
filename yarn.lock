@@ -682,10 +682,8 @@
   dependencies:
     webfontloader "^1.6.28"
 
-"@bit/pickzen.pui.core.pz-boiler@0.0.2":
+"@bit/pickzen.pui.core.pz-boiler@file:./src/components/core/pz-boiler":
   version "0.0.2"
-  resolved "https://node.bit.dev/pickzen.pui.core.pz-boiler/-/pickzen.pui.core.pz-boiler-0.0.2.tgz#03f429aa5a83f78abb94608e1f6fa3feb7df1f31"
-  integrity sha1-A/QpqlqD94q7lGCOH2+j/rffHzE=
   dependencies:
     "@bit/pickzen.pui.core.font-loader" "1.0.1"
     "@bit/pickzen.pui.core.styles" "1.0.8"
@@ -6734,6 +6732,11 @@ purify-css@^1.2.6:
     uglify-js "^3.0.6"
     yargs "^8.0.1"
 
+pz-pui-alpha@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/pz-pui-alpha/-/pz-pui-alpha-0.1.8.tgz#55c8c527b5f5c024b1dd2fab54b5b4f43ad80f6b"
+  integrity sha512-6Rk2TUJuKJViVYJHGL5EFQpb6nDd8fG7k/eeupgPv+KdeSdL9g25QfSdYKUpH3Bm+b8VD7ppZ34jO84zkIsjPA==
+
 q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
@@ -8415,6 +8418,11 @@ webpack-bundle-analyzer@^3.3.0:
     mkdirp "^0.5.1"
     opener "^1.5.1"
     ws "^6.0.0"
+
+webpack-cdn-plugin@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/webpack-cdn-plugin/-/webpack-cdn-plugin-3.1.4.tgz#8db8aabcf4c2ddb59a656b8198148cc5de2159f8"
+  integrity sha512-J88WEKc0e0rqSNNsLKk7mOVlVMviTCdew70CJVAz6vEzdUDx8FDBnuWmMxkOJrATCF1AgbrRskhTMI2CLOo45g==
 
 webpack-chain@^4.11.0:
   version "4.12.1"
