@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+Vue.config.devtools = true
+
 import PzPuiAlpha from 'pz-pui-alpha/cjs/index.js'
 // const PzPuiAlpha = () => import ( /* webpackChunkName: "pz-other" */ 'pz-pui-alpha/cjs/index.js')
 Vue.use(PzPuiAlpha)
