@@ -1,0 +1,24 @@
+{
+  "name": "@bit/pickzen.pui.core.pz-boiler",
+  "version": "0.0.2",
+  "homepage": "https://bit.dev/pickzen/pui/core/pz-boiler",
+  "main": "dist/PZBoiler.js",
+  "dependencies": {
+    "vue-observe-visibility": "^0.4.4",
+    "vue": "^2.6.10",
+    "vuex-pathify": "^1.2.4",
+    "vue-awesome": "^3.5.4",
+    "@bit/pickzen.pui.core.font-loader": "1.0.1",
+    "@bit/pickzen.pui.core.styles": "1.0.8",
+    "@bit/pickzen.pui.elements.pui-button": "0.0.1",
+    "@bit/pickzen.pui.elements.pui-nextprev": "0.0.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE",
+  "bit": {
+    "env": {
+      "compiler": "bit.envs/bundlers/vue@2.5.0"
+    }
+  }
+}

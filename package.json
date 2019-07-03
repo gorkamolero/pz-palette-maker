@@ -7,10 +7,10 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
+    "build": "vue-cli-service build",
     "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login",
-    "wc": "vue-cli-service build --target wc --name pz-palette-maker ./src/pz-palette-maker.vue",
-    "wc-watch": "vue-cli-service build --watch --target wc --name pz-palette-maker ./src/pz-palette-maker.vue"
+    "wc": "vue-cli-service build --target wc --name pz-palette-maker ./src/App.vue",
+    "wc-watch": "vue-cli-service build --watch --target wc --name pz-palette-maker ./src/App.vue"
   },
   "dependencies": {
     "chroma-js": "^2.0.4",
@@ -29,7 +29,7 @@
     "vue2-animate": "^2.1.0",
     "vuex": "^3.0.1",
     "webpack": "^4.35.0",
-    "@bit/pickzen.pui.core.pz-boiler": "0.0.2"
+    "@bit/pickzen.pui.core.pz-boiler": "file:./src/components/core/pz-boiler"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
