@@ -25,13 +25,13 @@ module.exports = {
   },
   chainWebpack: config => {
     //config.optimization.delete('splitChunks')
-    /* if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "production") {
       config.plugin('html').tap((args) => {
         args[0].minify.collapseWhitespace = false
         args[0].minify.removeComments = false
         return args
       })
-    } */
+    }
   },
   transpileDependencies: [
     /\bvue-awesome\b/
