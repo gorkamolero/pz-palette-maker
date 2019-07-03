@@ -21,8 +21,8 @@ import store from './store'
 import { mapMutations } from 'vuex'
 
 // We separate this as a library
-const PZBoiler = () => import ( /* webpackChunkName: "pz-boiler" */ '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue')
-// import PZBoiler from '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue'
+// const PZBoiler = () => import ( /* webpackChunkName: "pz-boiler" */ '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue')
+import PZBoiler from '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue'
 
 import '@/tempstyles.scss'
 
