@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+if (!window.Vuex) Vue.use(Vuex)
 
 const initState = () => ({
   img: '',

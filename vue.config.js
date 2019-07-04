@@ -3,7 +3,9 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob-all');
 const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const WebpackCdnPlugin = require('webpack-cdn-plugin');
+// const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
+const WebpackCdnPlugin = require('webpack-cdn-plugin');
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 
 module.exports = {
   filenameHashing: false,
@@ -16,6 +18,39 @@ module.exports = {
       // new webpack.optimize.LimitChunkCountPlugin({
       //   maxChunks: 4
       // }),
+      // new HtmlWebpackPlugin(),
+      // new DynamicCdnWebpackPlugin(),
+      // new WebpackCdnPlugin({
+      //   modules: [
+      //     {
+      //       name: 'vue',
+      //       var: 'Vue',
+      //       // path: 'dist/vue.runtime.min.js'
+      //       prodUrl: 'https://unpkg.com/vue'
+      //     },
+      //     {
+      //       name: 'pz-pui-alpha',
+      //       var: 'pz-pui-alpha',
+      //       // path: 'dist/vue.runtime.min.js'
+      //       prodUrl: 'https://unpkg.com/pz-pui-alpha'
+      //     }
+      //   ],
+      //   publicPath: '/node_modules'
+      // }),
+
+      // new HtmlWebpackExternalsPlugin({
+      //   externals: [
+      //     {
+      //       module: 'vue',
+      //       entry: {
+      //         path: 'https://unpkg.com/vue',
+      //         type: 'js',
+      //       },
+      //       global: 'Vue',
+      //     },
+      //   ],
+      // }),
+      
       new PurgecssPlugin({
         paths: glob.sync([
           path.join(__dirname, './src/index.html'),
@@ -23,40 +58,9 @@ module.exports = {
           path.join(__dirname, './src/**/*.js')
         ])
       }),
-      //new HtmlWebpackPlugin(),
-      // new WebpackCdnPlugin({
-      //   modules: [
-      //     {
-      //       name: 'vue',
-      //       var: 'Vue',
-      //       path: '/'
-      //     },
-      //     {
-      //       name: 'pz-pui-alpha',
-      //       var: 'PzPuiAlpha',
-      //       path: 'umd/index.min.js'
-      //     },
-      //     // {
-      //     //   name: 'vue-router',
-      //     //   var: 'VueRouter',
-      //     //   path: 'dist/vue-router.min.js'
-      //     // },
-      //     // {
-      //     //   name: 'vuex',
-      //     //   var: 'Vuex',
-      //     //   path: 'dist/vuex.min.js'
-      //     // }
-      //   ],
-      //   publicPath: '/node_modules'
-      // })
     ]
   },
   chainWebpack: config => {
-    // config.externals({
-    //   ...config.get('externals'),
-    //   //'vue': 'Vue',
-    //   'pz-pui-alpha': 'pz-pui-alpha'
-    // })
  
     //config.optimization.delete('splitChunks')
     if (process.env.NODE_ENV === "production") {
@@ -67,6 +71,17 @@ module.exports = {
       })
     }
 
+  },
+  pluginOptions: {
+    externals: {
+      common: [
+          {
+              id: 'vue',
+              assets: 'https://unpkg.com/vue@2.6.10/dist/vue.js',
+              global: 'Vue'
+          }
+      ]
+    }
   },
   transpileDependencies: [
     /\bvue-awesome\b/
