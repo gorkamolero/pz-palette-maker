@@ -8,6 +8,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-for-netlify": "vue-cli-service build --mode netlify",
     "build-lib": "vue-cli-service build --target lib --name PzPaletteMaker ./src/App.vue",
     "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login",
     "wc": "vue-cli-service build --target wc --name pz-palette-maker ./src/App.vue",
