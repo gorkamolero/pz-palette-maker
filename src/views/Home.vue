@@ -86,7 +86,6 @@ export default {
     font-weight: 300;
     margin-bottom: .3rem;
   }
-  position: relative;
 }
 .uppload-branding { display: none !important; }
 .uppload-modal .center-middle {

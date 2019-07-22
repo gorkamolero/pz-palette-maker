@@ -1,28 +1,28 @@
 <template>
-  <PZBoiler class="pz pz-palette-maker" :class="layout">
-    <pui-next-prev
-      prev
-      v-if="!$route.meta.hideArrow"
-      icon="arrow-left"
-      @click.native="goBack"
-      top left
-      style="z-index: 1;">
-      <small>Take me back</small>
-    </pui-next-prev>
+  <div class="pz-wrap">
+    <div class="pz pz-palette-maker" :class="layout">
+      <PZBoiler style="display: none;" />
+      <pui-next-prev
+        prev
+        v-if="!$route.meta.hideArrow"
+        icon="arrow-left"
+        @click.native="goBack"
+        top left
+        style="z-index: 1;">
+        <small>Take me back</small>
+      </pui-next-prev>
 
-    <router-view></router-view>
-  </PZBoiler>
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
 import router from '@/router'
 import store from './store'
-
 import { mapMutations } from 'vuex'
 
-// We separate this as a library
-// const PZBoiler = () => import ( /* webpackChunkName: "pz-boiler" */ '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue')
-import PZBoiler from '@bit/pickzen.pui.core.pz-boiler/PZBoiler.vue'
+import PZBoiler from '@bit/pickzen.pui.core.pz-boiler/PZBoiler'
 
 import '@/tempstyles.scss'
 
@@ -30,7 +30,9 @@ export default {
   router,
   store,
   name: 'pz-palette-maker',
-  components: { PZBoiler },
+  components: {
+    PZBoiler
+  },
   props: {
     layout: {
       type: String,
@@ -67,7 +69,14 @@ export default {
 </script>
 
 <style lang="scss">
+.pz-wrap {
+  min-width: 720px;
+  min-height: 480px;
+  position: relative;
+}
 .pz-palette-maker {
+  position: absolute;
+  height: 100%; width: 100%;
   text-align: center;
   
   display: flex;

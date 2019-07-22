@@ -7,17 +7,18 @@
   ],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern",
+    "build": "vue-cli-service build",
+    "build-lib": "vue-cli-service build --target lib --name PzPaletteMaker ./src/App.vue",
     "pui": "npm config set '@bit:registry' https://node.bit.dev && bit init && bit login",
     "wc": "vue-cli-service build --target wc --name pz-palette-maker ./src/App.vue",
     "wc-watch": "vue-cli-service build --watch --target lib --name pz-palette-maker ./src/App.vue"
   },
   "dependencies": {
-    "@bit/pickzen.pui.core.pz-boiler": "file:./src/components/core/pz-boiler",
+    "@bit/pickzen.pui.core.pz-boiler": "^0.1.3",
     "chroma-js": "^2.0.4",
     "core-js": "^2.6.5",
     "node-vibrant": "^3.1.3",
-    "pz-pui-alpha": "^0.1.10",
+    "pz-pui-alpha": "^0.1.17",
     "uppload-vue": "^1.1.2",
     "vue": "^2.6.10",
     "vue-awesome": "^3.5.4",
@@ -46,6 +47,7 @@
     "sass": "^1.21.0",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-externals": "^2.0.1",
+    "vue-cli-plugin-webpack-bundle-analyzer": "^1.4.0",
     "vue-template-compiler": "^2.6.10",
     "webpack-cdn-plugin": "^3.1.4",
     "webpack-monitor": "^1.0.14"

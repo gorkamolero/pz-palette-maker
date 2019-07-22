@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Home from './views/Home.vue'
 import Home2 from './views/Home-2.vue'
 
@@ -11,9 +11,9 @@ const Palette = () => import(/* webpackChunkName: "second-load" */ './views/Pale
 
 import ThankYou from './views/ThankYou.vue'
 
-if (!window.Router) Vue.use(Router)
+if (!window.VueRouter) Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [

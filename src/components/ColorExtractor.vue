@@ -32,9 +32,7 @@ export default {
       return results.filter(swatch => swatch != null); // Remove null swatches from the array
     }
   },
-  components: {
-  }
-};
+}
 </script>
 
 <style module>

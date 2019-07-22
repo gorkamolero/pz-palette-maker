@@ -55,7 +55,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import { SlickList, SlickItem } from 'vue-slicksort'
-import chroma from 'chroma-js'
+const chroma = () => import(/* webpackChunkName: "color" */ 'chroma-js')
 
 export default {
   data: () => ({

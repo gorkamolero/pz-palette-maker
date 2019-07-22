@@ -27,13 +27,12 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import chroma from 'chroma-js'
-import Swatches from 'vue-swatches'
 import 'vue-swatches/dist/vue-swatches.min.css'
-
-window.chroma = chroma
  
 export default {
-  components: { Swatches, },
+  components: {
+    Swatches: () => import(/* webpackChunkName: "color" */ 'vue-swatches')
+  },
   props: {
     init: String,
     index: Number

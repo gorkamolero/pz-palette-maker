@@ -6,7 +6,7 @@
     </router-link>
     
     <div class="card pointer vertical">
-      <UpploadVue to="/image" class="card pointer" @uploaded="onUpload" :settings="uppload.settings">
+      <UpploadVue to="/image" class="pz card pointer" @uploaded="onUpload" :settings="uppload.settings">
         <pui-icon icon="image" :scale="4"/>
         <span>Choose magically from image</span>
       </UpploadVue>

@@ -60,19 +60,18 @@
 </template>
 
 <script>
-        // @input="onSetColor"
 import Vue from 'vue'
 import router from '@/router'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import CuteModal from 'vue-cute-modal'
-import Swatches from 'vue-swatches'
-import { Chrome } from 'vue-color'
+const Swatches = () => import(/* webpackChunkName: "color" */ 'vue-swatches')
+
 
 Vue.use(CuteModal)
 
 export default {
   components: {
-    Chrome,
+    Chrome: () => import( /* webpackChunkName: "color" */ 'vue-color').then(({ Chrome }) => Chrome),
     Swatches,
   },
   mounted() {
