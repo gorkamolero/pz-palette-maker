@@ -19,6 +19,7 @@
 
 <script>
 import router from '@/router'
+
 import store from './store'
 import { mapMutations } from 'vuex'
 
@@ -43,18 +44,23 @@ export default {
       type: String,
       default: "10"
     },
-    onChange: String
+    onChange: String,
+    mode: String
   },
   created() {
     
     let slides = Number(this.slides)
 
+    console.log(1, this.onChange)
+
     this.setGlobalMethod(this.onChange)
+    this.setMode(this.mode)
     this.setNumOfSlides(slides)
 
     // Making sure we have a color array before proceeding 
     if(this.colors) {
-      const colors = this.colors.split(',').map(c => c.trim())
+      const colors = this.colors.split(',').map(color => color.trim())
+      
       if (Array.isArray(colors) && colors.length > 0) {
         this.setBaseColors(colors)
         router.push('/choose-multiple-colors')
@@ -62,7 +68,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setBaseColors', 'setNumOfSlides', 'setGlobalMethod']),
+    ...mapMutations(['setBaseColors', 'setNumOfSlides', 'setGlobalMethod', 'setMode']),
     goBack() { router.go(-1) }
   }
 } 
@@ -70,7 +76,8 @@ export default {
 
 <style lang="scss">
 .pz-wrap {
-  min-width: 720px;
+  width: 100%;
+  min-width: 700px;
   min-height: 480px;
   position: relative;
 }

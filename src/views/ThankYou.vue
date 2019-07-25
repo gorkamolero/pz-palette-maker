@@ -7,9 +7,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import chroma from 'chroma-js'
+import styleInject from 'style-inject'
 
 export default {
   mounted () {
+    // If mode ?
+    window.pzPalette = this.scss
+    //styleInject(this.scss)
+
     if( (window.vuebridge && window.vuebridge[this.getGlobalMethod]) ) {
       window.vuebridge[this.getGlobalMethod](this.getFinalScale)
     } else {
@@ -20,7 +26,19 @@ Colors: ${this.getFinalScale}`
     }
   },
   computed: {
-    ...mapGetters(['getFinalScale', 'getGlobalMethod'])
+    ...mapGetters(['getFinalScale', 'getGlobalMethod', 'getMode']),
+    scss () {
+      return this.getFinalScale.map((color, i) => (
+        `[data-slide-number="${i}"] {
+            --slide-color: ${color};
+            --slide-color-blend: ${this.lighten(color)};
+          }`
+        )
+      ).join('')
+    }
+  },
+  methods: {
+    lighten (color) { return chroma(color).brighten(1) }
   }
 }
 </script>

@@ -14,4 +14,4 @@ if (!window.PzPuiAlpha) Vue.use(PzPuiAlpha)
 
 new Vue({
   render: h => h(App),
-}).$mount('#pz-palette-maker') 
+}).$mount('#pz-palette-maker')

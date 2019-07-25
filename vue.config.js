@@ -1,14 +1,15 @@
 const isProd = process.env.NODE_ENV === 'production'
 const isNetlify = process.env.NODE_ENV === 'netlify'
+const isIntegration = process.env.NODE_ENV === 'integration'
 
 module.exports = {
-  publicPath: '/',
-  outputDir: isNetlify ? 'dist' : 'dist/editor/vue/pz-palette-maker',
+  publicPath: '/editor/vue/pz-palette-maker/',
+  outputDir: 'dist/editor/vue/pz-palette-maker',
   filenameHashing: false,
   // indexPath: 'index.html',
   pluginOptions: {
-    webpackBundleAnalyzer: { openAnalyzer: 'static' },
-    externals: (isProd || isNetlify) ? {
+    //webpackBundleAnalyzer: { openAnalyzer: 'static' },
+    externals: {
       common: [
         {
             id: 'vue',
@@ -51,7 +52,7 @@ module.exports = {
           global: 'index'
         },
       ]
-    } : {}
+    }
   },
   chainWebpack: config => {
     if (isProd || isNetlify) {

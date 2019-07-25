@@ -10,7 +10,8 @@ const initState = () => ({
   baseColors: [],
   widgetTextColor: 'black',
   scale: [],
-  onChange: ''
+  onChange: '',
+  mode: ''
 })
 
 const state = initState()
@@ -26,6 +27,7 @@ const store = {
     setBaseColors: (state, array) => array.forEach((color, index) => Vue.set(state.baseColors, index, color)),
     setNumOfSlides: (state, number) => Vue.set(state, 'slides', number),
     setGlobalMethod: (state, func) => Vue.set(state, 'onChange', func),
+    setMode: (state, mode) => Vue.set(state, 'mode', mode),
     setFinalScale: (state, scale) => scale.forEach((color, index) => Vue.set(state.scale, index, color)),
     resetAllColors: ({baseColors}) => {
       do {
@@ -39,6 +41,7 @@ const store = {
     getBaseColors: state => state.baseColors,
     getNumOfSlides: state => state.slides,
     getGlobalMethod: state => state.onChange,
+    getMode: state => state.mode,
     getFinalScale: state => state.scale
   },
   actions: {
