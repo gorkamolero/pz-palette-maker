@@ -78,7 +78,7 @@ export default {
 .pz-wrap {
   width: 100%;
   min-width: 700px;
-  min-height: 480px;
+  min-height: 100vh;
   position: relative;
 }
 .pz-palette-maker {
@@ -94,7 +94,7 @@ export default {
   height: 100%;
 
   &.standalone {
-    width: 720px;
+    width: 100%;
     height: 480px;
     margin: 0 auto;
     border: 1px solid gainsboro;
