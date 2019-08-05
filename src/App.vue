@@ -95,6 +95,7 @@ export default {
 
   &.standalone {
     width: 100%;
+    max-width: 780px;
     height: 480px;
     margin: 0 auto;
     border: 1px solid gainsboro;
