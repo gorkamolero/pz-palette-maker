@@ -12,12 +12,12 @@ import styleInject from 'style-inject'
 
 export default {
   mounted () {
-    // If mode ?
     window.pzPalette = this.scss
-    //styleInject(this.scss)
+
+    const returner = this.getMode === 'css' ? this.scss : this.getFinalScale
 
     if( (window.vuebridge && window.vuebridge[this.getGlobalMethod]) ) {
-      window.vuebridge[this.getGlobalMethod](this.getFinalScale)
+      window.vuebridge[this.getGlobalMethod](returner)
     } else {
       const msg =  `There is no global method called '${this.getGlobalMethod}'.
 Please contact your organization's Isidro ¯\_(ツ)_/¯

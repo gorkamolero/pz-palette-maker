@@ -5,13 +5,12 @@ Vue.config.devtools = true
 import PzPuiAlpha from 'pz-pui-alpha'
 if (!window.PzPuiAlpha) Vue.use(PzPuiAlpha)
 
-// import PzPuiAlpha from 'pz-pui-alpha/cjs/index.js'
-// const PzPuiAlpha = () => import ( /* webpackChunkName: "pz-other" */ 'pz-pui-alpha/cjs/index.js')
 
-// import vueCustomElement from 'vue-custom-element'
-// Vue.use(vueCustomElement)
-// Vue.customElement('pz-palette-maker', App)
+const mountEl = document.querySelector('#pz-palette-maker')
 
 new Vue({
-  render: h => h(App),
+  render: createElement => {
+    const context = { props: { ...mountEl.dataset } }
+    return createElement(App, context)
+  }
 }).$mount('#pz-palette-maker')

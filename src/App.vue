@@ -44,16 +44,16 @@ export default {
       type: String,
       default: "10"
     },
-    onChange: String,
-    mode: String
+    onchange: String,
+    mode: {
+      type: String,
+      default: "css"
+    }
   },
   created() {
-    
     let slides = Number(this.slides)
 
-    console.log(1, this.onChange)
-
-    this.setGlobalMethod(this.onChange)
+    this.setGlobalMethod(this.onchange)
     this.setMode(this.mode)
     this.setNumOfSlides(slides)
 
