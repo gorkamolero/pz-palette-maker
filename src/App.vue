@@ -19,7 +19,6 @@
 
 <script>
 import router from '@/router'
-
 import store from './store'
 import { mapMutations } from 'vuex'
 

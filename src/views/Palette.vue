@@ -69,6 +69,9 @@ export default {
     bezier: true,
     lightness: true,
   }),
+  created() {
+    if (window.pzPalette.numSlides) { this.setNumOfSlides(Number(window.pzPalette.numSlides)) }
+  },
   components: {
     SlickItem,
     SlickList,
@@ -90,7 +93,7 @@ export default {
     this.setFinalScale(this.colorScale())
   },
   methods: {
-    ...mapMutations(['setFinalScale']),
+    ...mapMutations(['setFinalScale', 'setNumOfSlides']),
     colorScale() {
       let colorList = [...this.colors]
       if(!this.colors && !this.slides) return []

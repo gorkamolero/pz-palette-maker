@@ -32,16 +32,6 @@ module.exports = {
             global: 'Vuex'
         },
         {
-          id: 'vue-router',
-          assets: [
-            {
-              path: 'https://unpkg.com/vue-router',
-              type: 'js'
-            }
-          ],
-          global: 'VueRouter'
-        },
-        {
           id: 'pz-pui-alpha',
           assets: [
             {
