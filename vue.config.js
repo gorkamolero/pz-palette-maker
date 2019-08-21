@@ -3,8 +3,8 @@ const isNetlify = process.env.NODE_ENV === 'netlify'
 const isIntegration = process.env.NODE_ENV === 'integration'
 
 module.exports = {
-  publicPath: '/editor/vue/pz-palette-maker/',
-  outputDir: 'dist/editor/vue/pz-palette-maker',
+  // publicPath: '/editor/vue/pz-palette-maker/',
+  // outputDir: 'dist/editor/vue/pz-palette-maker',
   filenameHashing: false,
   // indexPath: 'index.html',
   pluginOptions: {

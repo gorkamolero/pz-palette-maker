@@ -51,11 +51,9 @@ export default {
     }
   },
   created() {
-    let slides = Number(this.slides)
-
     this.setGlobalMethod(this.onchange)
     this.setMode(this.mode)
-    this.setNumOfSlides(slides)
+    this.setNumOfSlides(Number(this.slides))
 
     // Making sure we have a color array before proceeding 
     if(this.colors) {
@@ -67,6 +65,11 @@ export default {
       }
     }
   },
+  watch: {
+    slides: function() {
+      this.setNumOfSlides(Number(this.slides))
+    }
+  },
   methods: {
     ...mapMutations(['setBaseColors', 'setNumOfSlides', 'setGlobalMethod', 'setMode']),
     goBack() { router.go(-1) }
@@ -75,13 +78,19 @@ export default {
 </script>
 
 <style lang="scss">
+body.vue {
+  margin: 0;
+}
 .pz-wrap {
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
   position: relative;
 
   &.widget {
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
   }
 }
 .pz-palette-maker {
