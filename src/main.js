@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import pzPuiAlpha from './components/pz-pui'
 
 Vue.config.devtools = true
-import PzPuiAlpha from 'pz-pui-alpha'
-if (!window.PzPuiAlpha) Vue.use(PzPuiAlpha)
 
+pzPuiAlpha.forEach(component => Vue.component(component.name, component))
 
 const mountEl = document.querySelector('#pz-palette-maker')
+
 
 new Vue({
   render: createElement => {
