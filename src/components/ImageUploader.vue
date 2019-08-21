@@ -10,8 +10,7 @@ import router from '@/router'
 import { mapGetters, mapMutations } from 'vuex'
 
 // Lazy loading uppload
-import UpploadVue from 'uppload-vue'
-// const UpploadVue = () => import( /* webpackChunkName: "second-load" */ 'uppload-vue')
+const UpploadVue = () => import( /* webpackChunkName: "second-load" */ 'uppload-vue')
 
 export default {
   components: {
@@ -31,7 +30,7 @@ export default {
     }
   }),
   mounted () {
-    debugger
+    // debugger
   },
   methods: {
     ...mapMutations(['setIMG']),
