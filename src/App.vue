@@ -1,6 +1,6 @@
 <template>
-  <div class="pz-wrap">
-    <div class="pz pz-palette-maker" :class="layout">
+  <div class="pz-wrap" :class="layout">
+    <div class="pz pz-palette-maker">
       <PZBoiler style="display: none;" />
       <PuiNextPrev
         prev
@@ -77,9 +77,12 @@ export default {
 <style lang="scss">
 .pz-wrap {
   width: 100%;
-  min-width: 700px;
-  min-height: 100vh;
   position: relative;
+
+  &.widget {
+    height: 0;
+    padding-bottom: calc(100% * 9/16);
+  }
 }
 .pz-palette-maker {
   position: absolute;
@@ -93,7 +96,7 @@ export default {
   width: 100%;
   height: 100%;
 
-  &.standalone {
+  .standalone & {
     width: 100%;
     max-width: 780px;
     height: 480px;
