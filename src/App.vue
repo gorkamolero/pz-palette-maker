@@ -81,7 +81,7 @@ export default {
 
   &.widget {
     height: 0;
-    padding-bottom: calc(100% * 9/16);
+    padding-bottom: 100%;
   }
 }
 .pz-palette-maker {
