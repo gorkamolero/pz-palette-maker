@@ -22,9 +22,6 @@ export default {
   data: () => ({
     swatches: []
   }),
-  mounted() {
-    //Vibrant.from().getPalette((err, palette) => this.swatches = palette)
-  },
   methods: {
     async coloursFromImage() {
       const palette = await Vibrant.from(this.$refs.image).getPalette() // Use the library to extract colors

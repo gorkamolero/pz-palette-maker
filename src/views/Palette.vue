@@ -17,8 +17,14 @@
         </SlickList>
 
         <ul class="options" v-if="multi">
-          <li><vs-checkbox v-model="bezier">Smooth transition</vs-checkbox></li>
-          <li><vs-checkbox v-model="lightness">Correct Light</vs-checkbox></li>
+          <li>
+            <input type="checkbox" id="bezier" v-model="bezier">
+            <label for="bezier">Smooth transition</label>
+          </li>
+          <li>
+            <input type="checkbox" id="lightness" v-model="lightness">
+            <label for="lightness">Correct Lighting</label>
+          </li>
         </ul>
 
         <footer style="margin-top: auto;">

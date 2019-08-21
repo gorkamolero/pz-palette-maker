@@ -2,15 +2,15 @@
   <div class="pz-wrap">
     <div class="pz pz-palette-maker" :class="layout">
       <PZBoiler style="display: none;" />
-      <pui-next-prev
+      <PuiNextPrev
         prev
         v-if="!$route.meta.hideArrow"
-        icon="arrow-left"
+        icon="prev"
         @click.native="goBack"
         top left
-        style="z-index: 1;">
+        style="z-index: 9;">
         <small>Take me back</small>
-      </pui-next-prev>
+      </PuiNextPrev>
 
       <router-view></router-view>
     </div>

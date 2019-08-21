@@ -13,15 +13,16 @@
     </div>
     
     <div class="card">
-      <img class="original" ref="image" :src="img" alt="">
+      <img v-if="img" class="original" ref="image" :src="img" alt="">
     </div>
-    <pui-next-prev
+    
+    <PuiNextPrev
       v-if="this.minReached"
-      icon="arrow-right"
+      icon="next"
       @click.native="setNGo"
       bottom right>
       <small>I love these colors. Let's go!</small>
-    </pui-next-prev>
+    </PuiNextPrev>
   </article>
 </template>
 
