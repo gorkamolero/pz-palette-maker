@@ -1,10 +1,14 @@
+const omit = require('lodash.omit')
+
 const isProd = process.env.NODE_ENV === 'production'
 const isNetlify = process.env.NODE_ENV === 'netlify'
 const isIntegration = process.env.NODE_ENV === 'integration'
 
-module.exports = {
-  // publicPath: '/editor/vue/pz-palette-maker/',
-  // outputDir: 'dist/editor/vue/pz-palette-maker',
+(isNetlify) && console.log('GABUNGOO!')
+
+const myExports = {
+  publicPath: '/editor/vue/pz-palette-maker/',
+  outputDir: 'dist/editor/vue/pz-palette-maker',
   filenameHashing: false,
   // indexPath: 'index.html',
   pluginOptions: {
@@ -54,3 +58,5 @@ module.exports = {
     }
   }
 }
+
+module.exports = !isNetlify ? myExports : omit(omit, ['publicPath', 'outputDir'])
