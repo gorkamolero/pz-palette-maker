@@ -2,7 +2,6 @@ const omit = require('lodash.omit')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isNetlify = process.env.NODE_ENV === 'netlify'
-const isIntegration = process.env.NODE_ENV === 'integration'
 
 (isNetlify) && console.log('GABUNGOO!')
 
