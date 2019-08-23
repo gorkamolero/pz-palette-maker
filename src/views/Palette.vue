@@ -70,7 +70,7 @@ export default {
     lightness: true,
   }),
   created() {
-    if (window.pzPalette.numSlides) { this.setNumOfSlides(Number(window.pzPalette.numSlides)) }
+    if (window.pzPalette && window.pzPalette.numSlides) { this.setNumOfSlides(Number(window.pzPalette.numSlides)) }
   },
   components: {
     SlickItem,
