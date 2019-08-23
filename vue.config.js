@@ -3,8 +3,6 @@ const omit = require('lodash.omit')
 const isProd = process.env.NODE_ENV === 'production'
 const isNetlify = process.env.NODE_ENV === 'netlify'
 
-(isNetlify) && console.log('GABUNGOO!')
-
 const myExports = {
   publicPath: '/editor/vue/pz-palette-maker/',
   outputDir: 'dist/editor/vue/pz-palette-maker',
