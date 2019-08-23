@@ -69,9 +69,6 @@ export default {
     bezier: true,
     lightness: true,
   }),
-  created() {
-    if (window.pzPalette && window.pzPalette.numSlides) { this.setNumOfSlides(Number(window.pzPalette.numSlides)) }
-  },
   components: {
     SlickItem,
     SlickList,

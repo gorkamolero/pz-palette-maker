@@ -12,7 +12,11 @@ import styleInject from 'style-inject'
 
 export default {
   mounted () {
-    window.pzPalette = this.scss
+    window.pzPalette = {
+      scss: this.scss,
+      scale: this.getFinalScale,
+      colors: this.getFinalScale
+    }
 
     const returner = this.getMode === 'css' ? this.scss : this.getFinalScale
 
@@ -24,6 +28,8 @@ Please contact your organization's Isidro ¯\_(ツ)_/¯
 Colors: ${this.getFinalScale}`
       console.warn(msg)
     }
+
+
   },
   computed: {
     ...mapGetters(['getFinalScale', 'getGlobalMethod', 'getMode']),

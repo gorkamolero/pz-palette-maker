@@ -16,12 +16,7 @@
 import { mapMutations } from 'vuex'
 
 export default {
-  mounted () {
-    this.resetAllColors()
-  },
-  methods: {
-    ...mapMutations(['resetAllColors']),
-  },
+
 }
 </script>
 

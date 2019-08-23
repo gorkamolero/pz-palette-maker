@@ -49,19 +49,20 @@ export default {
       default: "css"
     }
   },
-  created() {
+  mounted() {
     this.setGlobalMethod(this.onchange)
     this.setMode(this.mode)
     this.setNumOfSlides(Number(this.slides))
 
-    // Making sure we have a color array before proceeding 
-    if(this.colors) {
-      const colors = this.colors.split(',').map(color => color.trim())
-      
-      if (Array.isArray(colors) && colors.length > 0) {
-        this.setBaseColors(colors)
-        router.push('/choose-multiple-colors')
-      }
+    if(window.pzPalette) {
+      window.pzPalette.numSlides && this.setNumOfSlides(Number(window.pzPalette.numSlides))
+      console.log('SET NUMBEr')
+
+      if(window.pzPalette.colors === undefined) return
+
+      this.setNumOfSlides(window.pzPalette.colors.length)
+      this.setBaseColors(window.pzPalette.colors)
+      router.push('/readable-colors')
     }
   },
   watch: {
