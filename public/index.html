@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>pz-palette-maker</title>
+    <script>
+      window.YETT_BLACKLIST = [
+        /use.fontawesome.com/,
+      ]
+      /*
+      window.pzPalette = {
+        numSlides: 3,
+        colors: ['#fff', 'red', '#808080']
+      }
+      */
+    </script>
+    <script src="https://unpkg.com/yett"></script>
   </head>
   <body class="vue">
     <noscript>
@@ -15,13 +27,12 @@
     <pz-palette-maker
       id="pz-palette-maker"
       data-layout="standalone"
-      data-slides="10"
       data-onchange="pzGlobalMethod"
       data-mode="css"
     />
     <!-- Layout: widget or standalone -->
-    <!-- Colors: pass string with values, like so: colors="#fff, red, #808080" -->
-    <!-- Slides: change number of slides -->
+    <!-- Colors: will read from array in window.pzPalette.colors colors="[#fff, red, #808080"] -->
+    <!-- Slides: will read from window.pzPalette.numSlides -->
     <!-- on-change will find and call a method contained in window.vuebridge, with the result -->
     <!-- built files will be auto injected -->
   </body>

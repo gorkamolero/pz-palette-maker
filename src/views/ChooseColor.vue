@@ -90,7 +90,10 @@ export default {
       'removeBaseColor',
       'resetAllColors'
     ]),
-    reset () { router.push('/') },
+    reset () {
+      this.resetAllColors()
+      router.push('/')
+    },
     addNewColor() {
       this.addBaseColor('#808080')
       this.$nextTick(() => this.open('#EEE', this.localIndex))

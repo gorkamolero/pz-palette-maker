@@ -24,7 +24,10 @@ const store = {
     setColorByIndex: (state, { color, index }) => state.baseColors.splice(index, 1, color),
     addBaseColor: (state, color) => state.baseColors.push(color),
     removeBaseColor: (state, index) => Vue.delete(state.baseColors, index),
-    setBaseColors: (state, array) => array.forEach((color, index) => Vue.set(state.baseColors, index, color)),
+    setBaseColors: (state, array) => array.forEach((color, index) => {
+      console.log(1, '!' ,color)
+      Vue.set(state.baseColors, index, color)
+    }),
     setNumOfSlides: (state, number) => Vue.set(state, 'slides', number),
     setGlobalMethod: (state, func) => Vue.set(state, 'onChange', func),
     setMode: (state, mode) => Vue.set(state, 'mode', mode),

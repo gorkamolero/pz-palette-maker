@@ -14,7 +14,7 @@ import ThankYou from './views/ThankYou.vue'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'abstract',
+  // mode: 'abstract',
   base: process.env.BASE_URL,
   routes: [
     {
