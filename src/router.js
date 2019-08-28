@@ -11,7 +11,7 @@ const Palette = () => import(/* webpackChunkName: "second-load" */ './views/Pale
 
 import ThankYou from './views/ThankYou.vue'
 
-Vue.use(VueRouter)
+if (!window.VueRouter) Vue.use(VueRouter)
 
 const router = new VueRouter({
   // mode: 'abstract',
@@ -74,6 +74,6 @@ const router = new VueRouter({
   ]
 })
 
-router.replace('/')
+// router.replace('/')
 
 export default router

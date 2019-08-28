@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Thank you!</h1>
-    <img src="../assets/circular-sunglasses.png" alt="">
+    <p>Instructions on command line</p>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import styleInject from 'style-inject'
 
 export default {
   mounted () {
-    window.pzPalette = {
+    window.parent.pzPalette = {
       scss: this.scss,
       scale: this.getFinalScale,
       colors: this.getFinalScale
@@ -20,8 +20,8 @@ export default {
 
     const returner = this.getMode === 'css' ? this.scss : this.getFinalScale
 
-    if( (window.vuebridge && window.vuebridge[this.getGlobalMethod]) ) {
-      window.vuebridge[this.getGlobalMethod](returner)
+    if( (window.parent.vuebridge && window.parent.vuebridge[this.getGlobalMethod]) ) {
+      window.parent.vuebridge[this.getGlobalMethod](returner)
     } else {
       const msg =  `There is no global method called '${this.getGlobalMethod}'.
 Please contact your organization's Isidro ¯\_(ツ)_/¯

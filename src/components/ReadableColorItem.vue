@@ -3,7 +3,7 @@
     <div class="card leftie nobg">
       <div class="card-inner">
         <div v-if="!amIReadable()">
-          <h1>😤 That's not a <strong>readable</strong> color...</h1>
+          <h1>That's not a <strong>readable</strong> color...</h1>
           <p>Please choose a variant that could work:</p>
           <div class="swatches">
             <swatches :colors="lighterMiniVersions()" inline @input="setTheColor" />
@@ -11,7 +11,7 @@
         </div>
 
         <div v-else>
-          <h1>💃Success!</h1>
+          <h1>Success!</h1>
           <p>That's fine for the human eye</p>
         </div>
       </div>

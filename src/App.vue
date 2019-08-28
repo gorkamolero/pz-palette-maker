@@ -54,15 +54,17 @@ export default {
     this.setMode(this.mode)
     this.setNumOfSlides(Number(this.slides))
 
-    if(window.pzPalette) {
-      window.pzPalette.numSlides && this.setNumOfSlides(Number(window.pzPalette.numSlides))
+    if(!window.parent) return
+
+    if(window.parent.pzPalette) {
+      window.parent.pzPalette.numSlides && this.setNumOfSlides(Number(window.parent.pzPalette.numSlides))
       console.log('SET NUMBEr')
 
-      if(window.pzPalette.colors === undefined) return
+      if(window.parent.pzPalette.colors === undefined) return
 
-      this.setNumOfSlides(window.pzPalette.colors.length)
-      this.setBaseColors(window.pzPalette.colors)
-      router.push('/readable-colors')
+      this.setNumOfSlides(window.parent.pzPalette.colors.length)
+      this.setBaseColors(window.parent.pzPalette.colors)
+      router.push('/choose-multiple-colors')
     }
   },
   watch: {
@@ -82,16 +84,10 @@ body.vue {
   margin: 0;
 }
 .pz-wrap {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
-
   position: relative;
-
-  &.widget {
-    height: 0;
-    padding-bottom: 80%;
-  }
 }
 .pz-palette-maker {
   position: absolute;

@@ -2,7 +2,7 @@
   <article class="final step">
     <div class="card leftie">
       <div class="card-inner">
-        <h1>🎨 Ready!  🎉 <span v-if="multi">Now rearrange to your liking! </span></h1>
+        <h1>Ready! <span v-if="multi">Now rearrange to your liking! </span></h1>
         
 
         <br><br>
@@ -45,7 +45,7 @@
         </template>
       </div>
       <div class="commit">
-        <p>If you're happy with this palette, proceed 👇</p>
+        <p>If you're happy with this palette, proceed:</p>
       </div>
     </div>
 

@@ -8,9 +8,12 @@
 <script>
 import router from '@/router'
 import { mapGetters, mapMutations } from 'vuex'
+import { dom } from '@fortawesome/fontawesome-svg-core'
 
 // Lazy loading uppload
 const UpploadVue = () => import( /* webpackChunkName: "second-load" */ 'uppload-vue')
+
+dom.watch()
 
 export default {
   components: {
@@ -19,6 +22,7 @@ export default {
   data: () => ({
     uppload: {
       settings: {
+        ignoreFontAwesome: true,
         minimumDelay: 2000,
         uploadFunction: file => (
           new Promise((resolve, reject) => {
@@ -47,4 +51,10 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.uppload-modal {
+  font-size: 90%;
+  &, * { font-family: 'Europa', sans-serif; }
+  #dragDropElement { padding: 5rem; }
+}
+</style>
