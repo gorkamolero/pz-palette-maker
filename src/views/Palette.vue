@@ -7,7 +7,7 @@
 
         <br><br>
         
-        <SlickList class="flex" axis="x" lockAxis="x" v-model="colors">
+        <SlickList class="flex" axis="x" lockAxis="x" v-model="colors" appendTo=".final.step">
           <SlickItem v-for="(color, index) in colors" :index="index" :key="index">
             <div class="color-swatch">
               <div class="color" :style="{backgroundColor: color}"></div>
@@ -67,7 +67,7 @@ import chroma from 'chroma-js'
 export default {
   data: () => ({
     bezier: true,
-    lightness: true,
+    lightness: false,
   }),
   components: {
     SlickItem,
@@ -144,6 +144,7 @@ export default {
       border: 0.5px solid white;
       margin: 0;
       span { opacity: 0; }
+      pointer-events: none;
       &:hover span { opacity: 1; }
     }
   }

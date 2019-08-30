@@ -10,10 +10,10 @@
 // Vendor / external
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faTint, faPalette, faImage, faPaintBrush, faArrowUp, faArrowRight, faArrowDown, faArrowLeft, faCheck, faMinus, faBackward, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faTint, faPalette, faImage, faPaintBrush, faArrowUp, faArrowRight, faArrowDown, faArrowLeft, faCheck, faMinus, faBackward, faPlus, faUndo } from '@fortawesome/free-solid-svg-icons'
 
 // Registering them
-library.add(faTint, faPalette, faImage, faPaintBrush, faArrowUp, faArrowRight, faArrowDown, faArrowLeft, faCheck, faMinus, faBackward, faPlus)
+library.add(faTint, faPalette, faImage, faPaintBrush, faArrowUp, faArrowRight, faArrowDown, faArrowLeft, faCheck, faMinus, faBackward, faPlus, faUndo)
 
 export default {
   name: 'PuiIcon',
