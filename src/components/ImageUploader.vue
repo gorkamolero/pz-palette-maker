@@ -19,6 +19,7 @@ export default {
   data: () => ({
     uppload: {
       settings: {
+        ignoreFontAwesome: true,
         minimumDelay: 2000,
         uploadFunction: file => (
           new Promise((resolve, reject) => {
@@ -47,4 +48,13 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+  .uppload-modal {
+    font-size: 90%;
+    &, * { font-family: 'Europa', sans-serif; }
+    #dragDropElement { padding: 5rem; }
+    #dragDropElement { padding: 5rem !important; }
+    svg { display: none; }
+  }
+  
+</style>

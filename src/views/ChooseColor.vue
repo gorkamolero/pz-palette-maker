@@ -1,15 +1,5 @@
 <template>
-  <article class="step puiSpaceOut">
-    <pui-next-prev
-      v-if="$route.meta.multi"
-      @click.native="reset()"
-      icon="backward"
-      top right
-    >
-
-      <small>Reset...</small>
-    </pui-next-prev>    
-    
+  <article class="step puiSpaceOut">   
     <div class="card">
       <pui-icon :icon="$route.meta.icon" :scale="4" :style="{'fill': localColor}"/>
       <span :style="{ color: localColor }">{{ $route.name }}</span>
@@ -32,9 +22,18 @@
         </template>
       </div>
 
-      <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
-        <pui-icon color="white" icon="plus" />
-      </pui-button>
+      <div class="flex">
+
+        <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
+          <pui-icon color="white" icon="undo" />
+        </pui-button>
+
+        <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
+          <pui-icon color="white" icon="plus" />
+        </pui-button>
+
+      </div>
+
 
       <cute-modal name="colorpick" class="colorpick" :on-close="close">
         <div class="flex-column">
@@ -100,8 +99,8 @@ export default {
       this.localIndex ++
     },
     setLocalColor(color) {
-      document.documentElement.style.setProperty('--local-color', this.localColor)
       this.localColor = color
+      document.documentElement.style.setProperty('--local-color', this.localColor)
     },
     setLocalIndex(index) { this.localIndex = index },
     setLocalColorFromPicker({hex}) { this.setLocalColor(hex) },
@@ -143,6 +142,13 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --local-color: #808080;
+}
+.flex {
+  display: flex;
+  * + * { margin-left: .5rem; }
+}
 .pz {
   // Modal CSS
   @import '~vue-cute-modal/dist/vue-cute-modal.min.css';
