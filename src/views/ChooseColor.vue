@@ -1,15 +1,5 @@
 <template>
   <article class="step puiSpaceOut">
-    <pui-next-prev
-      v-if="$route.meta.multi"
-      @click.native="reset()"
-      icon="backward"
-      top right
-    >
-
-      <small>Reset...</small>
-    </pui-next-prev>    
-    
     <div class="card">
       <pui-icon :icon="$route.meta.icon" :scale="4" :style="{'fill': localColor}"/>
       <span :style="{ color: localColor }">{{ $route.name }}</span>
@@ -32,9 +22,17 @@
         </template>
       </div>
 
-      <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
-        <pui-icon color="white" icon="plus" />
-      </pui-button>
+      <div class="flex">
+
+        <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
+          <pui-icon color="white" icon="undo" />
+        </pui-button>
+        
+        <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
+          <pui-icon color="white" icon="plus" />
+        </pui-button>
+
+      </div>
 
       <cute-modal name="colorpick" class="colorpick" :on-close="close">
         <div class="flex-column">
@@ -52,8 +50,6 @@
         icon="arrow-right"
         to="/readable-colors"
         bottom right>
-        <small v-if="$route.meta.multi">I know what I'm doing</small>
-        <small v-else>This is it</small>
       </pui-next-prev>
     </div>
   </article>
@@ -67,7 +63,9 @@ import CuteModal from 'vue-cute-modal'
 const Swatches = () => import(/* webpackChunkName: "color" */ 'vue-swatches')
 
 
-Vue.use(CuteModal)
+Vue.use(CuteModal, {
+  onOpen: () => window.cute = true
+})
 
 export default {
   components: {
@@ -76,7 +74,7 @@ export default {
   },
   mounted() {
     if(this.baseColors.length) return
-    this.open('#808080', this.localIndex)
+    this.$nextTick(function() { this.open('#808080', this.localIndex) })
   },
   data: () => ({
     localColor: '',
@@ -100,8 +98,8 @@ export default {
       this.localIndex ++
     },
     setLocalColor(color) {
-      document.documentElement.style.setProperty('--local-color', this.localColor)
       this.localColor = color
+      document.documentElement.style.setProperty('--local-color', this.localColor)
     },
     setLocalIndex(index) { this.localIndex = index },
     setLocalColorFromPicker({hex}) { this.setLocalColor(hex) },
@@ -110,12 +108,6 @@ export default {
         color: this.localColor,
         index: this.localIndex
       })
-      // this.close()
-      
-      // this.setMode('color')
-      // this.setBaseColor(hex)
-      // //
-      // this.mode === 'color' && router.push('/color')
     },
     setNClose() {
       if(!this.$route.meta.multi) this.setSingleBaseColor(this.localColor)
@@ -143,6 +135,9 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --local-color: #808080;
+}
 .pz {
   // Modal CSS
   @import '~vue-cute-modal/dist/vue-cute-modal.min.css';
@@ -208,6 +203,11 @@ export default {
     position: absolute;
     bottom: 0;
     transform: translateY(100%);
+  }
+
+  .flex {
+    display: flex;
+    * + * { margin-left: .5rem; }
   }
 
   .flex-column {

@@ -6,7 +6,6 @@
       icon="arrow-right"
       to="/you-made-your-choice"
       bottom right>
-      <small>And finally...</small>
     </pui-next-prev>
   </section>
 </template>

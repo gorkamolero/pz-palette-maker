@@ -55,6 +55,9 @@ export default {
 .uppload-modal {
   font-size: 90%;
   &, * { font-family: 'Europa', sans-serif; }
-  #dragDropElement { padding: 5rem; }
+  #dragDropElement { padding: 5rem !important; }
+  svg { display: none; }
 }
+
+.widget ~ .uppload-bg.visible::after { display: none; } 
 </style>

@@ -2,16 +2,15 @@
   <article class="final step">
     <div class="card leftie">
       <div class="card-inner">
-        <h1>Ready! <span v-if="multi">Now rearrange to your liking! </span></h1>
+        <h1>Ready! <span v-if="multi">You can now rearrange to your liking! </span></h1>
         
 
         <br><br>
         
-        <SlickList class="flex" axis="x" lockAxis="x" v-model="colors">
+        <SlickList class="flex" axis="x" v-model="colors" appendTo=".final.step">
           <SlickItem v-for="(color, index) in colors" :index="index" :key="index">
             <div class="color-swatch">
               <div class="color" :style="{backgroundColor: color}"></div>
-              <span></span>
             </div>
           </SlickItem>
         </SlickList>
@@ -29,9 +28,6 @@
 
         <footer style="margin-top: auto;">
           <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
-          <small>
-            Many thanks to <a href="https://twitter.com/driven_by_data">Gregor</a> from <a href="https://vis4.net" target="_blank">vis4</a> for the idea
-          </small>
         </footer>
       </div>
 
@@ -53,7 +49,6 @@
       icon="arrow-right"
       to="/thank-you"
       bottom right>
-      <small>Let's go!</small>
     </pui-next-prev>
   </article>
 </template>
@@ -67,7 +62,7 @@ import chroma from 'chroma-js'
 export default {
   data: () => ({
     bezier: true,
-    lightness: true,
+    lightness: false,
   }),
   components: {
     SlickItem,
@@ -132,6 +127,7 @@ export default {
 
   .color-scale {
     align-self: flex-start;
+    /* justify-content: center; */
     display: flex;
     flex-wrap: wrap;
     //margin: calc(-1 * var(--space));
@@ -139,11 +135,11 @@ export default {
 
 
     .color-swatch {
-      flex: auto;
       min-width: 55px;
       border: 0.5px solid white;
       margin: 0;
       span { opacity: 0; }
+      pointer-events: none;
       &:hover span { opacity: 1; }
     }
   }

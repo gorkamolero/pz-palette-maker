@@ -9,7 +9,6 @@
         @click.native="goBack"
         top left
         style="z-index: 9;">
-        <small>Take me back</small>
       </PuiNextPrev>
 
       <router-view></router-view>
@@ -46,7 +45,7 @@ export default {
     onchange: String,
     mode: {
       type: String,
-      default: "css"
+      default: "array"
     }
   },
   mounted() {
@@ -58,7 +57,6 @@ export default {
 
     if(window.parent.pzPalette) {
       window.parent.pzPalette.numSlides && this.setNumOfSlides(Number(window.parent.pzPalette.numSlides))
-      console.log('SET NUMBEr')
 
       if(window.parent.pzPalette.colors === undefined) return
 

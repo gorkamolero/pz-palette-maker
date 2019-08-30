@@ -46,6 +46,7 @@ export default {
     background: linear-gradient(
       30deg,
       rgb(248, 152, 29) 0%,
+      rgb(248, 152, 29) 50%,
       rgb(255, 184, 93) 100%
     );
 

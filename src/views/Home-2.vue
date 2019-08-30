@@ -1,8 +1,8 @@
 <template>
   <nav class="step">
-    <router-link class="card pointer" to="/choose-one-color">
+    <router-link class="card pointer" to="/choose-one-color" style="opacity: .5; pointer-events: none;">
       <pui-icon icon="tint" :scale="4"/>
-      <span>One Color</span>
+      <span>Start with one Color</span>
     </router-link>
     
     <div class="card pointer vertical">

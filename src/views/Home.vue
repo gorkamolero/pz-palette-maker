@@ -2,12 +2,12 @@
   <nav class="step">
     <router-link class="card pointer" to="/choose-one-color">
       <pui-icon icon="tint" :scale="4"/>
-      <span>One Color</span>
+      <span>Start with one Color</span>
     </router-link>
 
     <router-link to="/multi-color" class="card pointer">
       <pui-icon icon="palette" :scale="4"/>
-      <span>Multiple Colors</span>
+      <span>Start with multiple Colors</span>
     </router-link>
   </nav>
 </template>
