@@ -1,6 +1,6 @@
 <template>
   <UpploadVue to="/image" class="pz card pointer" @uploaded="onUpload" :settings="uppload.settings">
-    <pui-icon icon="image" :scale="4"/>
+    <pui-icon data-v-step="2" icon="image" :scale="4"/>
     <span>Start with an image</span>
   </UpploadVue>
 </template>

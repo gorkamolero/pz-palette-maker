@@ -77,6 +77,7 @@ export default {
 
 <style lang="scss">
 body.vue {
+  padding: 0;
   margin: 0;
 }
 .pz-wrap {
@@ -86,6 +87,7 @@ body.vue {
   position: relative;
 }
 .pz-palette-maker {
+  overflow: hidden;
   position: absolute;
   height: 100%; width: 100%;
   text-align: center;
@@ -93,9 +95,6 @@ body.vue {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  height: 100%;
 
   .standalone & {
     width: 100%;
