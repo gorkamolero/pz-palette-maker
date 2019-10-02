@@ -19,7 +19,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
-    "chroma-js": "^2.0.4",
+    "chroma-js": "^2.0.6",
     "core-js": "^2.6.5",
     "lodash.omit": "^4.5.0",
     "node-vibrant": "^3.1.3",

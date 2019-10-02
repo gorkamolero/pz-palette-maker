@@ -1,6 +1,6 @@
 <template>
   <nav class="step">
-    <router-link class="card pointer" to="/choose-one-color" style="opacity: .5; pointer-events: none;">
+    <router-link class="card pointer" to="/choose-one-color">
       <pui-icon icon="tint" :scale="4"/>
       <span>Start with one Color</span>
     </router-link>

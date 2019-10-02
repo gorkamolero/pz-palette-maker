@@ -59,8 +59,6 @@ export default {
       window.parent.pzPalette.numSlides && this.setNumOfSlides(Number(window.parent.pzPalette.numSlides))
 
       if(window.parent.pzPalette.colors === undefined) return
-
-      this.setNumOfSlides(window.parent.pzPalette.colors.length)
       this.setBaseColors(window.parent.pzPalette.colors)
       router.push('/choose-multiple-colors')
     }

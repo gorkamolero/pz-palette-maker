@@ -1,7 +1,7 @@
 <template>
   <UpploadVue to="/image" class="pz card pointer" @uploaded="onUpload" :settings="uppload.settings">
     <pui-icon icon="image" :scale="4"/>
-    <span>Choose magically from image</span>
+    <span>Start with an image</span>
   </UpploadVue>
 </template>
 

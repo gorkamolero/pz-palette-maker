@@ -7,7 +7,9 @@
 
     <div class="card">
       <div class="card-inner color-swatch-wrap">
+        <div style="text-align: center; width: 100%; padding: 1em;" v-if="baseColors.length >= 5">You've reached the maximum: 5 selectable colors</div>
         <template v-for="(color, index) in baseColors">
+          
           <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi && baseColors.length !== 0 }" :key="index">
             <div class="remover">
               <pui-button @click.native="removeBaseColor(index)" fab size="small">
@@ -28,7 +30,7 @@
           <pui-icon color="white" icon="undo" />
         </pui-button>
         
-        <pui-button v-if="$route.meta.multi || baseColors.length === 0" @click.native="addNewColor" fab size="small">
+        <pui-button v-if="($route.meta.multi || baseColors.length === 0) && baseColors.length <= 4" @click.native="addNewColor" fab size="small">
           <pui-icon color="white" icon="plus" />
         </pui-button>
 

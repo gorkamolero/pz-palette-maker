@@ -13,13 +13,14 @@ import styleInject from 'style-inject'
 export default {
   mounted () {
     console.info('Many thanks to Gregor from VIS4 for the palette idea')
-    window.parent.pzPalette = {
+    const returner = {
       scss: this.scss,
+      colors: this.getBaseColors,
       scale: this.getFinalScale,
-      colors: this.getFinalScale
+      doubleScale: this.doubleScale
     }
 
-    const returner = this.getMode === 'css' ? this.scss : this.doubleScale
+    window.parent.pzPalette = returner
 
     if( (window.parent.vuebridge && window.parent.vuebridge[this.getGlobalMethod]) ) {
       window.parent.vuebridge[this.getGlobalMethod](returner)
@@ -33,7 +34,7 @@ Colors: ${this.getFinalScale}`
 
   },
   computed: {
-    ...mapGetters(['getFinalScale', 'getGlobalMethod', 'getMode']),
+    ...mapGetters(['getFinalScale', 'getBaseColors', 'getGlobalMethod', 'getMode']),
     scss () {
       return this.getFinalScale.map((color, i) => (
         `[data-slide-number="${i}"] {

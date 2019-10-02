@@ -61,7 +61,7 @@ import chroma from 'chroma-js'
 
 export default {
   data: () => ({
-    bezier: true,
+    bezier: false,
     lightness: false,
   }),
   components: {
@@ -88,15 +88,16 @@ export default {
     ...mapMutations(['setFinalScale', 'setNumOfSlides']),
     colorScale() {
       let colorList = [...this.colors]
+
       if(!this.colors && !this.slides) return []
       if(this.single) colorList = ['white', ...this.colors]
-      if(this.bezier && this.lightness) return chroma.bezier(colorList)
-                                                .scale()
-                                                .correctLightness()
-                                                .colors(this.slides)
+      
+      if(this.bezier && this.lightness) { return chroma.bezier(colorList).scale().correctLightness().colors(this.slides) }
       
       if(!this.bezier && !this.lightness) return chroma.scale(colorList).colors(this.slides)
-      if(this.bezier && !this.lightness) return chroma.bezier(colorList).scale().colors(this.slides)
+      if(this.bezier && !this.lightness) {
+        return chroma.bezier(colorList).scale().colors(this.slides)
+      }
       if(!this.bezier && this.lightness) return chroma.scale(colorList).correctLightness().colors(this.slides)
     }
   }

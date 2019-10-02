@@ -17,11 +17,20 @@ const router = new VueRouter({
   // mode: 'abstract',
   base: process.env.BASE_URL,
   routes: [
-    {
+    /* {
       path: '/',
       name: 'home',
       component: Home,
       meta: {
+        hideArrow: true
+      }
+    }, */
+    {
+      path: '/',
+      name: 'One Multi',
+      component: Home2,
+      meta: {
+        split: true,
         hideArrow: true
       }
     },
@@ -30,7 +39,8 @@ const router = new VueRouter({
       name: 'One Multi',
       component: Home2,
       meta: {
-        split: true
+        split: true,
+        hideArrow: true
       }
     },
     {
@@ -40,7 +50,7 @@ const router = new VueRouter({
     },
     {
       path: '/choose-one-color',
-      name: 'One Color',
+      name: 'Start with one Color',
       component: ChooseColor,
       meta: {
         multi: false,
