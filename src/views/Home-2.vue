@@ -1,19 +1,19 @@
 <template>
-  <nav class="step">
-    <router-link class="card pointer" to="/choose-one-color">
-      <pui-icon icon="tint" :scale="4"/>
-      <span>Start with one Color</span>
-    </router-link>
+  <Wrapper>
+    <InfoBox>
+      <p>Welcome to our Palette Generator</p>
+      <p>This tool will help you generate a color palette to match your Quiz.</p>
+    </InfoBox>
     
-    <div class="card pointer vertical">
-      <ImageUploader />
-
+    <nav class="step">
       <router-link to="/choose-multiple-colors" class="card pointer">
         <pui-icon icon="paint-brush" :scale="4"/>
         <span>Create your own palette</span>
       </router-link>
-    </div>
-  </nav>
+      
+      <ImageUploader />
+    </nav>
+  </Wrapper>
 </template>
 
 <script>
@@ -22,10 +22,14 @@ import { mapGetters, mapMutations } from 'vuex'
 
 // Lazy loading uppload
 import ImageUploader from '@/components/ImageUploader'
+import InfoBox from '@/components/InfoBox'
+import Wrapper from '@/components/Wrapper'
 
 export default {
   components: {
     ImageUploader,
+    Wrapper,
+    InfoBox
   },
 }
 </script>

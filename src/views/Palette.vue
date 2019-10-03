@@ -1,56 +1,61 @@
 <template>
-  <article class="final step">
-    <div class="card leftie">
-      <div class="card-inner">
-        <h1>Ready! <span v-if="multi">You can now rearrange to your liking! </span></h1>
-        
+  <div class="pz-palette-wrapper">
+    <InfoBox>
+      Your color palette...
+    </InfoBox>
+    <article class="final step">
+      <div class="card leftie">
+        <div class="card-inner">
+          <h1>Ready! <span v-if="multi">You can now rearrange to your liking! </span></h1>
+          
 
-        <br><br>
-        
-        <SlickList class="flex" axis="x" v-model="colors" appendTo=".final.step">
-          <SlickItem v-for="(color, index) in colors" :index="index" :key="index">
-            <div class="color-swatch">
-              <div class="color" :style="{backgroundColor: color}"></div>
+          <br><br>
+          
+          <SlickList class="flex" axis="x" v-model="colors" appendTo=".final.step">
+            <SlickItem v-for="(color, index) in colors" :index="index" :key="index">
+              <div class="color-swatch">
+                <div class="color" :style="{backgroundColor: color}"></div>
+              </div>
+            </SlickItem>
+          </SlickList>
+
+          <ul class="options" v-if="multi">
+            <li>
+              <input type="checkbox" id="bezier" v-model="bezier">
+              <label for="bezier">Smooth transition</label>
+            </li>
+            <li>
+              <input type="checkbox" id="lightness" v-model="lightness">
+              <label for="lightness">Correct Lighting</label>
+            </li>
+          </ul>
+
+          <footer style="margin-top: auto;">
+            <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
+          </footer>
+        </div>
+
+      </div>
+      <div class="card">
+        <div class="color-scale">
+          <template v-for="(color, index) in colorScale()">
+            <div v-if="colorScale().length" :key="index" class="color-swatch">
+              <div class="color" :class="{border: color === 'white'}" :style="{backgroundColor: color}"></div>
             </div>
-          </SlickItem>
-        </SlickList>
-
-        <ul class="options" v-if="multi">
-          <li>
-            <input type="checkbox" id="bezier" v-model="bezier">
-            <label for="bezier">Smooth transition</label>
-          </li>
-          <li>
-            <input type="checkbox" id="lightness" v-model="lightness">
-            <label for="lightness">Correct Lighting</label>
-          </li>
-        </ul>
-
-        <footer style="margin-top: auto;">
-          <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
-        </footer>
+          </template>
+        </div>
+        <div class="commit">
+          <p>If you're happy with this palette, proceed:</p>
+        </div>
       </div>
 
-    </div>
-    <div class="card">
-      <div class="color-scale">
-        <template v-for="(color, index) in colorScale()">
-          <div v-if="colorScale().length" :key="index" class="color-swatch">
-            <div class="color" :class="{border: color === 'white'}" :style="{backgroundColor: color}"></div>
-          </div>
-        </template>
-      </div>
-      <div class="commit">
-        <p>If you're happy with this palette, proceed:</p>
-      </div>
-    </div>
-
-    <pui-next-prev
-      icon="arrow-right"
-      to="/thank-you"
-      bottom right>
-    </pui-next-prev>
-  </article>
+      <pui-next-prev
+        icon="arrow-right"
+        to="/thank-you"
+        bottom right>
+      </pui-next-prev>
+    </article>
+  </div>
 </template>
 
 <script>

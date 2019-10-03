@@ -1,60 +1,65 @@
 <template>
-  <article class="step puiSpaceOut">
-    <div class="card">
-      <pui-icon :icon="$route.meta.icon" :scale="4" :style="{'fill': localColor}"/>
-      <span :style="{ color: localColor }">{{ $route.name }}</span>
-    </div>
+  <div class="pz-palette-wrapper">
+    <InfoBox>
+      Choose a series of colors
+    </InfoBox>
+    <article class="step puiSpaceOut">
+      <div class="card">
+        <pui-icon :icon="$route.meta.icon" :scale="4" :style="{'fill': localColor}"/>
+        <span :style="{ color: localColor }">{{ $route.name }}</span>
+      </div>
 
-    <div class="card">
-      <div class="card-inner color-swatch-wrap">
-        <div style="text-align: center; width: 100%; padding: 1em;" v-if="baseColors.length >= 5">You've reached the maximum: 5 selectable colors</div>
-        <template v-for="(color, index) in baseColors">
+      <div class="card">
+        <div class="card-inner color-swatch-wrap">
+          <div style="text-align: center; width: 100%; padding: 1em;" v-if="baseColors.length >= 5">You've reached the maximum: 5 selectable colors</div>
+          <template v-for="(color, index) in baseColors">
+            
+            <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi && baseColors.length !== 0 }" :key="index">
+              <div class="remover">
+                <pui-button @click.native="removeBaseColor(index)" fab size="small">
+                  <pui-icon color="white" icon="minus" />
+                </pui-button>
+              </div>
+              
+              
+              <div class="color" @click="open(color, index)" :style="[{backgroundColor: color}]" :class="{border: color.includes('f') || color.includes('white')}"></div>
+              <span>{{ color }}</span>
+            </div>
+          </template>
+        </div>
+
+        <div class="flex">
+
+          <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
+            <pui-icon color="white" icon="undo" />
+          </pui-button>
           
-          <div v-if="baseColors.length" class="color-swatch" :class="{ 'single': !$route.meta.multi && baseColors.length !== 0 }" :key="index">
-            <div class="remover">
-              <pui-button @click.native="removeBaseColor(index)" fab size="small">
-                <pui-icon color="white" icon="minus" />
+          <pui-button v-if="($route.meta.multi || baseColors.length === 0) && baseColors.length <= 4" @click.native="addNewColor" fab size="small">
+            <pui-icon color="white" icon="plus" />
+          </pui-button>
+
+        </div>
+
+        <cute-modal name="colorpick" class="colorpick" :on-close="close">
+          <div class="flex-column">
+            <Chrome :value="localColor" @input="setLocalColorFromPicker" />
+            <div class="OK">
+              <pui-button @click.native="setNClose" fab size="small">
+                <pui-icon color="white" icon="check" />
               </pui-button>
             </div>
-            
-            
-            <div class="color" @click="open(color, index)" :style="[{backgroundColor: color}]" :class="{border: color.includes('f') || color.includes('white')}"></div>
-            <span>{{ color }}</span>
           </div>
-        </template>
+        </cute-modal>
+
+        <pui-next-prev
+          v-if="baseColors.length"
+          icon="arrow-right"
+          to="/readable-colors"
+          bottom right>
+        </pui-next-prev>
       </div>
-
-      <div class="flex">
-
-        <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
-          <pui-icon color="white" icon="undo" />
-        </pui-button>
-        
-        <pui-button v-if="($route.meta.multi || baseColors.length === 0) && baseColors.length <= 4" @click.native="addNewColor" fab size="small">
-          <pui-icon color="white" icon="plus" />
-        </pui-button>
-
-      </div>
-
-      <cute-modal name="colorpick" class="colorpick" :on-close="close">
-        <div class="flex-column">
-          <Chrome :value="localColor" @input="setLocalColorFromPicker" />
-          <div class="OK">
-            <pui-button @click.native="setNClose" fab size="small">
-              <pui-icon color="white" icon="check" />
-            </pui-button>
-          </div>
-        </div>
-      </cute-modal>
-
-      <pui-next-prev
-        v-if="baseColors.length"
-        icon="arrow-right"
-        to="/readable-colors"
-        bottom right>
-      </pui-next-prev>
-    </div>
-  </article>
+    </article>
+  </div>
 </template>
 
 <script>
@@ -143,6 +148,7 @@ export default {
 .pz {
   // Modal CSS
   @import '~vue-cute-modal/dist/vue-cute-modal.min.css';
+
 }
 
 .pz-palette-maker {
@@ -244,7 +250,7 @@ export default {
       padding: 0 !important;
     }
     .modal-base {
-      position: fixed;
+      position: absolute;
     }
     .cute-modal__overlay {
       opacity: 1;

@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import pzPuiAlpha from './components/pz-pui'
+import InfoBox from '@/components/InfoBox'
+
+Vue.component('InfoBox', InfoBox)
 
 Vue.config.devtools = true
 

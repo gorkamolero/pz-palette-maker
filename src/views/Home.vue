@@ -1,15 +1,17 @@
 <template>
-  <nav class="step">
-    <router-link class="card pointer" to="/choose-one-color">
-      <pui-icon icon="tint" :scale="4"/>
-      <span>Start with one Color</span>
-    </router-link>
+  <div class="pz-palette-wrapper">
+    <nav class="step">
+      <router-link class="card pointer" to="/choose-one-color">
+        <pui-icon icon="tint" :scale="4"/>
+        <span>Start with one Color</span>
+      </router-link>
 
-    <router-link to="/multi-color" class="card pointer">
-      <pui-icon icon="palette" :scale="4"/>
-      <span>Start with multiple Colors</span>
-    </router-link>
-  </nav>
+      <router-link to="/multi-color" class="card pointer">
+        <pui-icon icon="palette" :scale="4"/>
+        <span>Start with multiple Colors</span>
+      </router-link>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -29,7 +31,6 @@ export default {
   button { font-family: inherit; }
 
   .step {
-    height: 100%;
     flex: 1;
     display: flex;
     align-items: center;

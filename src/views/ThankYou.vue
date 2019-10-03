@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pz-palette-wrapper step">
     <h1>Thank you!</h1>
     <p>Instructions on command line</p>
   </div>

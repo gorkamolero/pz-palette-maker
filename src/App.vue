@@ -85,17 +85,11 @@ body.vue {
   overflow: hidden;
   position: relative;
 }
+
 .pz-palette-maker {
   position: absolute;
   height: 100%; width: 100%;
   text-align: center;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
 
   .standalone & {
     width: 100%;

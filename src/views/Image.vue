@@ -1,29 +1,34 @@
 <template>
-  <article class="step image">
-    <div class="card">
-      <div class="card-inner color-swatch-wrap">
-        <h1>❕ Please de-select to reach a maximum of four</h1>
-        <template v-for="(color, index) in swatches">
-          <div class="color-swatch" :class="{active: isActive(color.hex)}" @click="toggleInactive(color.hex)" :key="index">
-            <div class="color" :style="{backgroundColor: color.hex}"></div>
-            <span>{{ color.hex }}</span>
-          </div>
-        </template>
+  <div class="pz-palette-wrapper">
+    <InfoBox>
+      Choose a maximum of 4 colors
+    </InfoBox>
+    <article class="step image">
+      <div class="card">
+        <div class="card-inner color-swatch-wrap">
+          <h1>❕ Please de-select to reach a maximum of four</h1>
+          <template v-for="(color, index) in swatches">
+            <div class="color-swatch" :class="{active: isActive(color.hex)}" @click="toggleInactive(color.hex)" :key="index">
+              <div class="color" :style="{backgroundColor: color.hex}"></div>
+              <span>{{ color.hex }}</span>
+            </div>
+          </template>
+        </div>
       </div>
-    </div>
-    
-    <div class="card">
-      <img v-if="img" class="original" ref="image" :src="img" alt="">
-    </div>
-    
-    <PuiNextPrev
-      v-if="this.minReached"
-      icon="next"
-      @click.native="setNGo"
-      bottom right>
-      <small>I love these colors. Let's go!</small>
-    </PuiNextPrev>
-  </article>
+      
+      <div class="card">
+        <img v-if="img" class="original" ref="image" :src="img" alt="">
+      </div>
+      
+      <PuiNextPrev
+        v-if="this.minReached"
+        icon="next"
+        @click.native="setNGo"
+        bottom right>
+        <small>I love these colors. Let's go!</small>
+      </PuiNextPrev>
+    </article>
+  </div>
 </template>
 
 <script>

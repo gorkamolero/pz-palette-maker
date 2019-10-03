@@ -1,13 +1,16 @@
 <template>
-  <section class="allColors">
-    <ReadableColorItem v-for="(color, index) in colors" :key="index" :init="color" :index="index" />
-    
-    <pui-next-prev
-      icon="arrow-right"
-      to="/you-made-your-choice"
-      bottom right>
-    </pui-next-prev>
-  </section>
+  <div class="pz-palette-wrapper">
+    <InfoBox>Some colors are not readable. Here you can choose readable version of your colors.</InfoBox>
+    <section class="allColors">
+      <ReadableColorItem v-for="(color, index) in colors" :key="index" :init="color" :index="index" />
+      
+      <pui-next-prev
+        icon="arrow-right"
+        to="/you-made-your-choice"
+        bottom right>
+      </pui-next-prev>
+    </section>
+  </div>
 </template>
 
 <script>
