@@ -1,7 +1,7 @@
 <template>
   <div class="pz-palette-wrapper">
     <InfoBox>
-      Choose a series of colors
+      Choose more than one color
     </InfoBox>
     <article class="step puiSpaceOut">
       <div class="card">
@@ -30,9 +30,9 @@
 
         <div class="flex">
 
-          <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
+          <!-- <pui-button v-if="$route.meta.multi && baseColors.length > 1" @click.native="reset()" fab size="small">
             <pui-icon color="white" icon="undo" />
-          </pui-button>
+          </pui-button> -->
           
           <pui-button v-if="($route.meta.multi || baseColors.length === 0) && baseColors.length <= 4" @click.native="addNewColor" fab size="small">
             <pui-icon color="white" icon="plus" />
@@ -52,7 +52,7 @@
         </cute-modal>
 
         <pui-next-prev
-          v-if="baseColors.length"
+          v-if="baseColors.length > 1"
           icon="arrow-right"
           to="/readable-colors"
           bottom right>

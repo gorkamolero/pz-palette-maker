@@ -59,11 +59,11 @@ const router = new VueRouter({
     },
     {
       path: '/choose-multiple-colors',
-      name: 'Multiple Colors',
+      name: 'Create your own palette',
       component: ChooseColor,
       meta: {
         multi: true,
-        icon: 'palette'
+        icon: 'paint-brush'
       }
     },
     {

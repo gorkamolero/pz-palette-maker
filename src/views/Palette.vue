@@ -1,7 +1,7 @@
 <template>
   <div class="pz-palette-wrapper">
     <InfoBox>
-      Your color palette...
+      Your color palette is automatically calculated from the number of slides in your quiz.
     </InfoBox>
     <article class="final step">
       <div class="card leftie">
@@ -24,15 +24,11 @@
               <input type="checkbox" id="bezier" v-model="bezier">
               <label for="bezier">Smooth transition</label>
             </li>
-            <li>
+            <li style="margin-left: var(--space)">
               <input type="checkbox" id="lightness" v-model="lightness">
               <label for="lightness">Correct Lighting</label>
             </li>
           </ul>
-
-          <footer style="margin-top: auto;">
-            <small>Your color palette is automatically calculated from the number of slides in your quiz.</small>
-          </footer>
         </div>
 
       </div>
